@@ -6,7 +6,7 @@ let imgTitleGif;
 let imgEnding;
 let imgGoodEnding;
 let imgkrab;
-
+let imgBridge;
 
 function preload() {
   
@@ -14,7 +14,7 @@ function preload() {
 //   imgGoodEnding = loadImage("assets/images/happy ending.gif");
   imgTitleGif = loadImage("assets/images/Krab Title gif.gif")
   imgkrab = loadImage("assets/images/Krab.png");
- 
+ imgBridge = loadImage("assets/images/bridge.png")
 }
 
 // setup()
@@ -25,7 +25,7 @@ function setup() {
   // We can set the current state by creating a NEW object from the class
   // representing that state! This will call its constructor() which will work
   // like the `setup()` for that state.
-  currentState = new Title(); // REVERT TO TITLE AFTER
+  currentState = new title(); // REVERT TO TITLE AFTER
 
   // Text settings
   textSize(50);
@@ -41,15 +41,15 @@ function draw() {
   currentState.draw();
 }
 
-// // keyPressed()
-// // Call the keyPressed method of the current state
-// // Note how even if the specific state itself DOESN'T define a keyPressed() method this
-// // will work because they all extend the State class which does have one. For instance
-// // neither Animation nor Ending define a keyPressed() method, but this still works
-// // because they INHERIT the one from the State class.
-// function keyPressed() {
-//   // If the current state is Title this will call the Title class keyPressed()
-//   // If the current state is Animation this will call the State class keyPressed()
-//   // if the current state is Ending this will call the State class keyPressed()
-//   currentState.keyPressed();
-// }
+// keyPressed()
+// Call the keyPressed method of the current state
+// Note how even if the specific state itself DOESN'T define a keyPressed() method this
+// will work because they all extend the State class which does have one. For instance
+// neither Animation nor Ending define a keyPressed() method, but this still works
+// because they INHERIT the one from the State class.
+function keyPressed() {
+  // If the current state is Title this will call the Title class keyPressed()
+  // If the current state is Animation this will call the State class keyPressed()
+  // if the current state is Ending this will call the State class keyPressed()
+  currentState.keyPressed();
+}

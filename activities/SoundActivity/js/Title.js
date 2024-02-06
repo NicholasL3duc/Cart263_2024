@@ -1,5 +1,5 @@
 
-class Title extends State {
+class title extends State {
 
   
     // state is created. Sets the title of the program.
@@ -18,28 +18,22 @@ class Title extends State {
       // Always call the super() version of the method if there is one
       // just in case it does something important.
       super.draw();
+
   this.keyPressed();
+
 //    will change this to a drawn image 
       background(imgTitleGif,0,0,width,height);
   
     
-      // the actual title text. More methods/functions is generally better.
-    //   this.displayTitle();
+     
     }
   
-    // displayTitle()
-   
-    // displayTitle() {
-    //   push();
-    //   image(imgTitleGif,0,0,width,height);
-    //   pop();
-    // }
+
   
-    
     keyPressed() {
     
-      super.keyPressed();
-  
-      currentState = new Question1();
-    }
+        super.keyPressed();
+    
+        currentState = new Animation();
+      }
   }

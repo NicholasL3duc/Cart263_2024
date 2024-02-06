@@ -43,3 +43,4 @@ class TitleCutScene extends class {
       currentState = new Animation();
     }
 }
+{}
