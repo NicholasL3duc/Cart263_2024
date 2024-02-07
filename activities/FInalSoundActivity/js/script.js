@@ -9,11 +9,31 @@ let imgGoodEnding;
 let imgkrab;
 let imgBridge;
 
+// troll images
+let imgSleepingTroll;
+let imgAlertTroll;
+let imgStopTroll;
+let imgDefeatedTroll;
+let imgAwakeTroll;
+
+// sounds/ music
+let backgroundForest;
+let TitleMusic;
+
 function preload() {
 
     imgTitleGif = loadImage("assets/images/Krab Title gif.gif")
     imgkrab = loadImage("assets/images/Krab.png");
    imgBridge = loadImage("assets/images/bridge.png")
+   imgSleepingTroll = loadImage("assets/images/SleepingTroll-removebg-preview.png")
+   imgAlertTroll = loadImage("assets/images/alert_troll-removebg-preview.png")
+   imgDefeatedTroll = loadImage("assets/images/defeatedTroll-removebg-preview.png")
+   imgStopTroll = loadImage("assets/images/stopTroll-removebg-preview.png")
+   imgAwakeTroll = loadImage("assets/images/awakeTroll-removebg-preview.png")
+
+   //music
+   backgroundForest = loadSound('assets/sounds/Pokemon- Mystery Dungeon Explorers of Sky- Apple Woods- Music [TubeRipper.com] (1).mp3')
+    TitleMusic = loadSound('assets/sounds/Pokémon Red & Blue Music_ Opening Theme (1).mp3')
 }
 
 // setup()
@@ -21,6 +41,8 @@ function preload() {
 function setup() {
   createCanvas(1400, 850);
 
+
+  
   // We can set the current state by creating a NEW object from the class
   // representing that state! This will call its constructor() which will work
   // like the `setup()` for that state.
