@@ -9,14 +9,29 @@ class Title extends State {
 //    will change this to a drawn image 
         createCanvas(720, 720);
       background(imgTitleGif);
-  
-    }
 
+      this.music
+    }
+    music(){
+        push();
+    
+        if(TitleMusicOn == false){
+            TitleMusic.play();
+            TitleMusic.setVolume(0.3)
+        userStartAudio
+        TitleMusic.loop()
+        console.log("playmusic")
+        TitleMusicOn = true
+        }
+        
+        pop();
+        }
     
     keyPressed() {
     
       super.keyPressed();
   
       currentState = new Animation();
+      TitleMusic.stop
     }
   }

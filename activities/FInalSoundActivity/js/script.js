@@ -19,7 +19,8 @@ let imgAwakeTroll;
 // sounds/ music
 let backgroundForest;
 let TitleMusic;
-
+let backgroundForestOn = false;
+let TitleMusicOn = false;
 function preload() {
 
     imgTitleGif = loadImage("assets/images/Krab Title gif.gif")
@@ -33,7 +34,8 @@ function preload() {
 
    //music
    backgroundForest = loadSound('assets/sounds/Pokemon- Mystery Dungeon Explorers of Sky- Apple Woods- Music [TubeRipper.com] (1).mp3')
-    TitleMusic = loadSound('assets/sounds/Pokémon Red & Blue Music_ Opening Theme (1).mp3')
+   TitleMusic = loadSound('assets/sounds/TitleMusic.mp3')
+
 }
 
 // setup()

@@ -36,7 +36,6 @@ class Animation extends State {
         vy: 0,
 
     }
-
     this.krab.vx = this.krab.speed;
 }
 
@@ -53,8 +52,8 @@ class Animation extends State {
       // Call the state's methods to make the animation work
       this.move();
       this.display();
-      this.music();
       this.gameStarter();
+      this.music()
     }
   
     // move()
@@ -97,16 +96,29 @@ class Animation extends State {
     
     }
 music(){
-backgroundForest.play();
+push();
+// backgroundForest.play();
+// backgroundForest.setVolume(0.3)
+// userStartAudio
+// backgroundForest.loop()
+// console.log("playmusic")
+
+if(backgroundForestOn == false){
+    backgroundForest.play();
 backgroundForest.setVolume(0.3)
 userStartAudio
 backgroundForest.loop()
+console.log("playmusic")
+backgroundForestOn = true
+}
 
+pop();
 }
     gameStarter(){
         if(this.krab.y > 500){
             state === "Start"
-            stop(backgroundForest)
+        backgroundForest.stop();
+     
         }
     }
 }

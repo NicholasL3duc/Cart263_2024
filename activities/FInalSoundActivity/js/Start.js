@@ -53,8 +53,12 @@ class Start extends State {
     //   this.questions();
       this.display();
       this.gameStarter();
+      this.music();
     }
+music(){
+backgroundForest
 
+}
   
     // display()
     // Displays the this.krab as an ellipse on the canvas
