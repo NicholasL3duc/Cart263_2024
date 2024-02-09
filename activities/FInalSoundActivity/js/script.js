@@ -31,6 +31,7 @@ function preload() {
    imgDefeatedTroll = loadImage("assets/images/defeatedTroll-removebg-preview.png")
    imgStopTroll = loadImage("assets/images/stopTroll-removebg-preview.png")
    imgAwakeTroll = loadImage("assets/images/awakeTroll-removebg-preview.png")
+   imgPoint = loadImage("assets/images/exclamation point.png")
 
    //music
    backgroundForest = loadSound('assets/sounds/Pokemon- Mystery Dungeon Explorers of Sky- Apple Woods- Music [TubeRipper.com] (1).mp3')

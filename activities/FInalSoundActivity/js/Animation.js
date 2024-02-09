@@ -21,7 +21,7 @@ class Animation extends State {
       super();
       // Krab object
       this.krab = {
-        x: 650,
+        x: 350,
         y: 20,
         size: 80,
         vx: 0,
@@ -29,8 +29,8 @@ class Animation extends State {
         speed: 3.5, //3.5 set it back
       }
       this.troll = {
-        x: 620,
-        y: 620,
+        x: 320,
+        y: 500,
         size: 90,
         vx: 0,
         vy: 0,
@@ -47,7 +47,9 @@ class Animation extends State {
       // Always call the super() version of the method if there is one
       // just in case it does something important.
       super.draw();
+      createCanvas(1400, 850);
       background(imgBridge);
+     
   
       // Call the state's methods to make the animation work
       this.move();
@@ -59,27 +61,35 @@ class Animation extends State {
     // move()
     // Updates the krab's position with its velocity
     move() {
-      if (keyIsDown(38)) {
-        //moving using the up arrow key
-        this.krab.vy = -this.krab.speed;
-      } else if (keyIsDown(40)) {
-        //moving using the down arrow key
-        this.krab.vy = this.krab.speed;
-      } else {
-        this.krab.vy = 0;
-      }
+     
+    // apperently important to turn everything lowercase
+    let lowerStr = "";
+    if(mySpeechRec.resultString) {
+        lowerStr= mySpeechRec.resultString.toLowerCase();
+    }
   
-      if (keyIsDown(39)) {
-        // moving using the right arrow key
-        this.krab.vx = this.krab.speed;
-      } else if (keyIsDown(37)) {
-        // moving using the left arrow key
-        this.krab.vx = -this.krab.speed;
-      } else {
-        this.krab.vx = 0;
-      }
-      this.krab.x += this.krab.vx;
-      this.krab.y += this.krab.vy;
+    let mostRecentWord = lowerStr.split(" ").pop();
+  
+    if (mostRecentWord == "stop") {
+     krab.vx = 0;
+     krab.vy = 0;
+    }
+    if (mostRecentWord == "up") {
+     krab.vx = 0;
+     krab.vy = -2;
+    }
+    if (mostRecentWord == "down") {
+     krab.vx = 0;
+     krab.vy = 2;
+    }
+    if (mostRecentWord == "left") {
+     krab.vx = -2;
+     krab.vy = 0;
+    }
+    if (mostRecentWord == "right") {
+     krab.vx = 2;
+     krab.vy = 0;
+    }
     }
   
     // display()
@@ -97,17 +107,12 @@ class Animation extends State {
     }
 music(){
 push();
-// backgroundForest.play();
-// backgroundForest.setVolume(0.3)
-// userStartAudio
-// backgroundForest.loop()
-// console.log("playmusic")
 
 if(backgroundForestOn == false){
-    backgroundForest.play();
-backgroundForest.setVolume(0.3)
+backgroundForest.play();
+backgroundForest.setVolume(0.1)
 userStartAudio
-backgroundForest.loop()
+// backgroundForest.loop()
 console.log("playmusic")
 backgroundForestOn = true
 }
@@ -115,10 +120,10 @@ backgroundForestOn = true
 pop();
 }
     gameStarter(){
-        if(this.krab.y > 500){
-            state === "Start"
+        if(this.krab.y > 400){
+            // currentState = new Start
         backgroundForest.stop();
-     
+     image(imgPoint,400,400,400)
         }
     }
 }

@@ -7,17 +7,18 @@ class Title extends State {
       super.draw();
 
 //    will change this to a drawn image 
-        createCanvas(720, 720);
+    createCanvas(windowWidth,windowHeight);
       background(imgTitleGif);
 
-      this.music
+      this.music()
+     
     }
     music(){
         push();
     
         if(TitleMusicOn == false){
-            TitleMusic.play();
-            TitleMusic.setVolume(0.3)
+        TitleMusic.play();
+        TitleMusic.setVolume(0.1)
         userStartAudio
         TitleMusic.loop()
         console.log("playmusic")
@@ -32,6 +33,8 @@ class Title extends State {
       super.keyPressed();
   
       currentState = new Animation();
-      TitleMusic.stop
+    TitleMusic.stop();
+
+    //add voices for troll
     }
   }
