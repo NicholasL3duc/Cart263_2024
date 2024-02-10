@@ -24,6 +24,9 @@ let backgroundForestOn = false;
 let TitleMusicOn = false;
 let exclamationOn = false
 
+// timer
+let timer = 2
+
 // voice settings
 let mySpeechRec = new p5.SpeechRec(); // speech recognition object (will prompt for mic access)
 mySpeechRec.onResult = showResult; // bind callback function to when speech is recognized

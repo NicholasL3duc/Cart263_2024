@@ -36,7 +36,9 @@ class Animation extends State {
         vy: 0,
 
     }
- 
+if (frameCount % 60 == 0 && timer > 0){
+    timer --;
+}
 }
 // showResult(){
 //     console.log(mySpeechRec.resultString); // log the result
@@ -148,7 +150,9 @@ pop();
         //image(imgAlertTroll,650,580,100,100)
         if(exclamation.isPlaying() == false){
             exclamation.play()
-
+            // if (timer == 0) {
+            currentState = new Start
+            // }
         }
     //    exclamation.stop()
      image(imgPoint,650,500,80,70)

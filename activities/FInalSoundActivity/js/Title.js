@@ -8,9 +8,11 @@ class Title extends State {
 
 //    will change this to a drawn image 
     createCanvas(windowWidth,windowHeight);
+    this.music()
       background(imgTitleGif,1300,800);
+    this.StartGame();
 
-      this.music()
+ 
      
     }
     music(){
@@ -27,15 +29,31 @@ class Title extends State {
         
         pop();
         }
-    
-    keyPressed() {
-    
-      super.keyPressed();
-  
+    StartGame(){
+        let lowerStr = "";
+        if(mySpeechRec.resultString) {
+            lowerStr= mySpeechRec.resultString.toLowerCase();
+        }
+      
+        let mostRecentWord = lowerStr.split(" ").pop();
+      
+        if (mostRecentWord == "start") {
+       
       currentState = new Animation();
-    TitleMusic.stop();
+      TitleMusic.stop();
+      
+        }
+
+    }
+
+    // keyPressed() {
+    
+    //   super.keyPressed();
+  
+    //   currentState = new Animation();
+    // TitleMusic.stop();
     
 
     //add voices for troll
-    }
+    //}
   }

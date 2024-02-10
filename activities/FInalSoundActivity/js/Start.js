@@ -21,19 +21,20 @@ class Start extends State {
       super();
       // Krab object
       this.krab = {
-        x: 350,
+        x: 650,
         y: 400,
         size: 80,
         vx: 0,
         vy: 0,
-        speed: 3.5, //3.5 set it back 
-    }
-        this.troll = {
-            x: 320,
-            y: 500,
-            size: 90,
-            vx: 0,
-            vy: 0,
+        speed: 3.5, //3.5 set it back
+      }
+      this.troll = {
+        x: 650,
+        y: 570,
+        size: 90,
+        vx: 0,
+        vy: 0,
+
     
         }
     this.krab.vx = this.krab.speed;
@@ -68,11 +69,13 @@ music(){
     image(imgkrab, this.krab.x, this.krab.y, this.krab.size, this.krab.size);
     pop();
     push();
-    image(imgAlertTroll, this.troll.x, this.t.y, this.troll.size, this.troll.size);
+    image(imgAlertTroll, this.troll.x, this.troll.y, this.troll.size, this.troll.size);
     pop();
 
     }
 gameStarter(){
 
+
+    
 }
 }
