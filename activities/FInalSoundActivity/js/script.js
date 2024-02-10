@@ -19,11 +19,24 @@ let imgAwakeTroll;
 // sounds/ music
 let backgroundForest;
 let TitleMusic;
+let exclamation;
 let backgroundForestOn = false;
 let TitleMusicOn = false;
+let exclamationOn = false
+
+// voice settings
+let mySpeechRec = new p5.SpeechRec(); // speech recognition object (will prompt for mic access)
+mySpeechRec.onResult = showResult; // bind callback function to when speech is recognized
+mySpeechRec.continuous = true
+mySpeechRec.interimResults = true
+mySpeechRec.start(); // start listening
+
 function preload() {
 
-    imgTitleGif = loadImage("assets/images/Krab Title gif.gif")
+    // title related
+    imgTitleGif = loadImage("assets/images/TitleSceneAlpha.gif")
+    // imgTitleScene = loadImage("assets/images/Krab Title gif.gif")
+    // krab related
     imgkrab = loadImage("assets/images/Krab.png");
    imgBridge = loadImage("assets/images/bridge.png")
    imgSleepingTroll = loadImage("assets/images/SleepingTroll-removebg-preview.png")
@@ -33,12 +46,16 @@ function preload() {
    imgAwakeTroll = loadImage("assets/images/awakeTroll-removebg-preview.png")
    imgPoint = loadImage("assets/images/exclamation point.png")
 
+
+
    //music
    backgroundForest = loadSound('assets/sounds/Pokemon- Mystery Dungeon Explorers of Sky- Apple Woods- Music [TubeRipper.com] (1).mp3')
    TitleMusic = loadSound('assets/sounds/TitleMusic.mp3')
-
+    exclamation = loadSound('assets/sounds/pokemon-exclamation-mark-sound-effect.mp3')
 }
-
+function showResult(){
+    console.log(mySpeechRec.resultString); // log the result
+  }
 // setup()
 // Create the canvas, start our program in the title state, set default text style
 function setup() {

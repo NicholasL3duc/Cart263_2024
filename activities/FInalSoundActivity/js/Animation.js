@@ -21,7 +21,7 @@ class Animation extends State {
       super();
       // Krab object
       this.krab = {
-        x: 350,
+        x: 650,
         y: 20,
         size: 80,
         vx: 0,
@@ -29,16 +29,18 @@ class Animation extends State {
         speed: 3.5, //3.5 set it back
       }
       this.troll = {
-        x: 320,
-        y: 500,
+        x: 650,
+        y: 570,
         size: 90,
         vx: 0,
         vy: 0,
 
     }
-    this.krab.vx = this.krab.speed;
+ 
 }
-
+// showResult(){
+//     console.log(mySpeechRec.resultString); // log the result
+//   }
     // draw()
     // Called every frame in the main script. Handles what the title
     // state needs to do each frame. It moves and displays the krab
@@ -56,6 +58,11 @@ class Animation extends State {
       this.display();
       this.gameStarter();
       this.music()
+    //   this.showResult();
+   
+
+    this.krab.x += this.krab.vx;
+    this.krab.y += this.krab.vy;
     }
   
     // move()
@@ -71,24 +78,24 @@ class Animation extends State {
     let mostRecentWord = lowerStr.split(" ").pop();
   
     if (mostRecentWord == "stop") {
-     krab.vx = 0;
-     krab.vy = 0;
+     this.krab.vx = 0;
+     this.krab.vy = 0;
     }
     if (mostRecentWord == "up") {
-     krab.vx = 0;
-     krab.vy = -2;
+        this.krab.vx = 0;
+     this.krab.vy = -2;
     }
     if (mostRecentWord == "down") {
-     krab.vx = 0;
-     krab.vy = 2;
+     this.krab.vx = 0;
+     this.krab.vy = 2;
     }
     if (mostRecentWord == "left") {
-     krab.vx = -2;
-     krab.vy = 0;
+     this.krab.vx = -2;
+     this.krab.vy = 0;
     }
     if (mostRecentWord == "right") {
-     krab.vx = 2;
-     krab.vy = 0;
+     this.krab.vx = 2;
+     this.krab.vy = 0;
     }
     }
   
@@ -99,6 +106,7 @@ class Animation extends State {
     push();
     image(imgkrab, this.krab.x, this.krab.y, this.krab.size, this.krab.size);
     pop();
+    // display for troll
     push();
     image(imgSleepingTroll, this.troll.x, this.troll.y, this.troll.size, this.troll.size);
     pop();
@@ -107,7 +115,7 @@ class Animation extends State {
     }
 music(){
 push();
-
+// main music
 if(backgroundForestOn == false){
 backgroundForest.play();
 backgroundForest.setVolume(0.1)
@@ -115,15 +123,35 @@ userStartAudio
 // backgroundForest.loop()
 console.log("playmusic")
 backgroundForestOn = true
+
+// sounds
+if(backgroundForestOn == false){
+    exclamation.play();
+    exclamation.setVolume(0.1)
+    userStartAudio
+    console.log("playsound")
+    exclamationOn = true
+    
+}
 }
 
 pop();
 }
     gameStarter(){
         if(this.krab.y > 400){
+            this.krab.vx = 0;
+            this.krab.vy = 0;
             // currentState = new Start
         backgroundForest.stop();
-     image(imgPoint,400,400,400)
+
+        // second action within
+        //image(imgAlertTroll,650,580,100,100)
+        if(exclamation.isPlaying() == false){
+            exclamation.play()
+
+        }
+    //    exclamation.stop()
+     image(imgPoint,650,500,80,70)
         }
     }
 }

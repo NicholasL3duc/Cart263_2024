@@ -8,7 +8,7 @@ class Title extends State {
 
 //    will change this to a drawn image 
     createCanvas(windowWidth,windowHeight);
-      background(imgTitleGif);
+      background(imgTitleGif,1300,800);
 
       this.music()
      
@@ -34,6 +34,7 @@ class Title extends State {
   
       currentState = new Animation();
     TitleMusic.stop();
+    
 
     //add voices for troll
     }
