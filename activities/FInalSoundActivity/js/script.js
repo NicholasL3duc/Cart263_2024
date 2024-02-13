@@ -20,9 +20,11 @@ let imgAwakeTroll;
 let backgroundForest;
 let TitleMusic;
 let exclamation;
+let dialogue;
 let backgroundForestOn = false;
 let TitleMusicOn = false;
-let exclamationOn = false
+let exclamationOn = false;
+let dialogueOn = false;
 
 // timer
 let timer = 2
@@ -49,12 +51,17 @@ function preload() {
    imgAwakeTroll = loadImage("assets/images/awakeTroll-removebg-preview.png")
    imgPoint = loadImage("assets/images/exclamation point.png")
 
+//    reusable images
+imgText = loadImage("assets/images/pixel-speech-bubble.png")
+
 
 
    //music
    backgroundForest = loadSound('assets/sounds/Pokemon- Mystery Dungeon Explorers of Sky- Apple Woods- Music [TubeRipper.com] (1).mp3')
    TitleMusic = loadSound('assets/sounds/TitleMusic.mp3')
+//    sounds
     exclamation = loadSound('assets/sounds/pokemon-exclamation-mark-sound-effect.mp3')
+    dialogue = loadSound('assets/sounds/Dialogue.mp3')
 }
 function showResult(){
     console.log(mySpeechRec.resultString); // log the result
@@ -69,7 +76,7 @@ function setup() {
   // We can set the current state by creating a NEW object from the class
   // representing that state! This will call its constructor() which will work
   // like the `setup()` for that state.
-  currentState = new Title(); // REVERT TO TITLE AFTER
+  currentState = new Start(); // REVERT TO TITLE AFTER
 
   // Text settings
   textSize(50);

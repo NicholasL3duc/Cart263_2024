@@ -10,7 +10,7 @@
 // NOTE: Even though at the moment Animation does *not* define a keyPressed()
 // method, the fact it extends State means it *does* have one when it is called
 // in the main program. This is a key benefit of extending State.
-class Question1 extends State {
+class SecretEnding extends State {
     // Acts as the setup() of the state, called when the
     // state is created. Creates a this.krab object and sets its
     // velocity.
@@ -54,8 +54,8 @@ class Question1 extends State {
     
 this.typewriter.typewrite(
 
-  `HEY, DO YOU THINK YOU CAN CROSS THIS BRIDGE
-  \n WITHOUT ANSWERING MY RIDDLES?!?!? `,
+  `oh....
+  \n okay then, have a good day `,
 
   windowWidth - 670,
   windowHeight / 1.4
@@ -76,7 +76,7 @@ this.typewriter.typewrite(
       // Call the state's methods to make the animation work
     //   this.questions();
       this.display();
-      this.gameStarter();
+ 
       this.music();
         this.question();
     }
@@ -110,15 +110,7 @@ question(){
     pop();
 
 
-// this.typewriter = new Typewriter();
-// this.typewriter.typewrite(
-//   `what is the number 2 added to the number 4= ?? 
-//   \n A) Seashell , B) Red,  C)6`,
 
-//   windowWidth - 920,
-//   windowHeight / 2.2
-// );
-// 
 
 }
 
@@ -134,19 +126,5 @@ question(){
     pop();
 
     }
-gameStarter(){
-    let lowerStr = "";
-    if(mySpeechRec.resultString) {
-        lowerStr= mySpeechRec.resultString.toLowerCase();
-    }
-  
-    let mostRecentWord = lowerStr.split(" ").pop();
-    if (mostRecentWord == "No") {
-        currentState = new Question2(); //if mouse clicks over choice 1 bad ending
-    }
-    if (mostRecentWord == "yes") {
-        currentState = new SecretEnding(); //if mouse clicks over choice 1 bad ending
-    }
 
-}
 }

@@ -37,7 +37,30 @@ class Start extends State {
 
     
         }
+    this.question1 = {
+        x: 700,
+        y: 470,
+        w: 550,
+        h: 150,
+        size: 120,
+
+        active: true,
+      };
+    //   krab speed
     this.krab.vx = this.krab.speed;
+
+// typewriter function
+    this.typewriter = new Typewriter();
+    
+this.typewriter.typewrite(
+
+  `HEY, DO YOU THINK YOU CAN CROSS THIS BRIDGE
+  \n WITHOUT ANSWERING MY RIDDLES?!?!? `,
+
+  windowWidth - 670,
+  windowHeight / 1.4
+  
+);
 }
     // draw()
     // Called every frame in the main script. Handles what the title
@@ -55,12 +78,50 @@ class Start extends State {
       this.display();
       this.gameStarter();
       this.music();
+        this.question();
     }
 music(){
 
+// sounds
+if(dialogueOn == false){
+    dialogue.play();
+    dialogue.setVolume(0.1)
+    userStartAudio
+    console.log("playsound")
+    dialogueOn = true
+    
+}
+}
+
+
+//   typewriter
+question(){
+    push();
+
+    image(
+    imgText,
+      this.question1.x,
+      this.question1.y,
+    //   this.question1.size,
+      this.question1.w,
+      this.question1.h
+    );
+    this.typewriter.display();
+    pop();
+
+
+// this.typewriter = new Typewriter();
+// this.typewriter.typewrite(
+//   `what is the number 2 added to the number 4= ?? 
+//   \n A) Seashell , B) Red,  C)6`,
+
+//   windowWidth - 920,
+//   windowHeight / 2.2
+// );
+// 
 
 }
-  
+
     // display()
     // Displays the this.krab as an ellipse on the canvas
     display() {
@@ -74,8 +135,18 @@ music(){
 
     }
 gameStarter(){
+    let lowerStr = "";
+    if(mySpeechRec.resultString) {
+        lowerStr= mySpeechRec.resultString.toLowerCase();
+    }
+  
+    let mostRecentWord = lowerStr.split(" ").pop();
+    if (mostRecentWord == "No") {
+        currentState = new Question2(); //if mouse clicks over choice 1 bad ending
+    }
+    if (mostRecentWord == "yes") {
+        currentState = new SecretEnding(); //if mouse clicks over choice 1 bad ending
+    }
 
-
-    
 }
 }
