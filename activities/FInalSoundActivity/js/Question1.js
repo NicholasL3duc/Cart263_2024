@@ -54,8 +54,8 @@ class Question1 extends State {
     
 this.typewriter.typewrite(
 
-  `HEY, DO YOU THINK YOU CAN CROSS THIS BRIDGE
-  \n WITHOUT ANSWERING MY RIDDLES?!?!? `,
+  `EXCACTLY, now first riddle...
+  \n What has Hands but Can't clap `,
 
   windowWidth - 670,
   windowHeight / 1.4
@@ -141,12 +141,12 @@ gameStarter(){
     }
   
     let mostRecentWord = lowerStr.split(" ").pop();
-    if (mostRecentWord == "No") {
-        currentState = new Question2(); //if mouse clicks over choice 1 bad ending
+    if (mostRecentWord == "clock") {
+        currentState = new Question1After(); //if mouse clicks over choice 1 bad ending
     }
-    if (mostRecentWord == "yes") {
-        currentState = new SecretEnding(); //if mouse clicks over choice 1 bad ending
-    }
+    // if (mostRecentWord == "yes") {
+    //     currentState = new SecretEnding(); //if mouse clicks over choice 1 bad ending
+    // }
 
 }
 }

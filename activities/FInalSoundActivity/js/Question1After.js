@@ -10,7 +10,7 @@
 // NOTE: Even though at the moment Animation does *not* define a keyPressed()
 // method, the fact it extends State means it *does* have one when it is called
 // in the main program. This is a key benefit of extending State.
-class Question3 extends State {
+class Question1After extends State {
     // Acts as the setup() of the state, called when the
     // state is created. Creates a this.krab object and sets its
     // velocity.
@@ -54,8 +54,8 @@ class Question3 extends State {
     
 this.typewriter.typewrite(
 
-  `What Gets Wet While Drying?
-  \n Nobody has ever gotten past this one hehe`,
+  `HOW DID YOU KNOW????
+  \n Nevermind, ready for the next one? `,
 
   windowWidth - 670,
   windowHeight / 1.4
@@ -83,12 +83,12 @@ this.typewriter.typewrite(
 music(){
 
 // sounds
-if(dialogueOn == false){
+if(dialogueOn == true){
     dialogue.play();
     dialogue.setVolume(0.1)
     userStartAudio
     console.log("playsound")
-    dialogueOn = true
+    dialogueOn = false
     
 }
 }
@@ -110,6 +110,15 @@ question(){
     pop();
 
 
+// this.typewriter = new Typewriter();
+// this.typewriter.typewrite(
+//   `what is the number 2 added to the number 4= ?? 
+//   \n A) Seashell , B) Red,  C)6`,
+
+//   windowWidth - 920,
+//   windowHeight / 2.2
+// );
+// 
 
 }
 
@@ -132,10 +141,12 @@ gameStarter(){
     }
   
     let mostRecentWord = lowerStr.split(" ").pop();
-    if (mostRecentWord == "towel") {
-        currentState = new Question3After(); //if mouse clicks over choice 1 bad ending
+    if (mostRecentWord == "yes") {
+        currentState = new Question2(); //if mouse clicks over choice 1 bad ending
     }
-  
+    if (mostRecentWord == "sure") {
+        currentState = new Question2(); //if mouse clicks over choice 1 bad ending
+    }
 
 }
 }

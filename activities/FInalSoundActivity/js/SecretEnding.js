@@ -79,19 +79,20 @@ this.typewriter.typewrite(
  
       this.music();
         this.question();
+        this.keyReleased();
     }
-music(){
+    music(){
 
-// sounds
-if(dialogueOn == false){
-    dialogue.play();
-    dialogue.setVolume(0.1)
-    userStartAudio
-    console.log("playsound")
-    dialogueOn = true
-    
-}
-}
+      // sounds
+      if(dialogueOn == false){
+          dialogue.play();
+          dialogue.setVolume(0.1)
+          userStartAudio
+          console.log("playsound")
+          dialogueOn = true
+          
+      }
+      }
 
 
 //   typewriter
@@ -126,5 +127,9 @@ question(){
     pop();
 
     }
-
+    keyReleased(){
+      if (keyCode === 32) {
+          currentState = new GoodEnding(); //if mouse clicks over choice 1 bad ending
+      }
+    }
 }

@@ -127,7 +127,7 @@ console.log("playmusic")
 backgroundForestOn = true
 
 // sounds
-if(exclamationOn == false){
+if(backgroundForestOn == false){
     exclamation.play();
     exclamation.setVolume(0.1)
     userStartAudio

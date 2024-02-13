@@ -110,15 +110,6 @@ question(){
     pop();
 
 
-// this.typewriter = new Typewriter();
-// this.typewriter.typewrite(
-//   `what is the number 2 added to the number 4= ?? 
-//   \n A) Seashell , B) Red,  C)6`,
-
-//   windowWidth - 920,
-//   windowHeight / 2.2
-// );
-// 
 
 }
 
@@ -141,8 +132,8 @@ gameStarter(){
     }
   
     let mostRecentWord = lowerStr.split(" ").pop();
-    if (mostRecentWord == "No") {
-        currentState = new Question2(); //if mouse clicks over choice 1 bad ending
+    if (mostRecentWord == "no") {
+        currentState = new Question1(); //if mouse clicks over choice 1 bad ending
     }
     if (mostRecentWord == "yes") {
         currentState = new SecretEnding(); //if mouse clicks over choice 1 bad ending

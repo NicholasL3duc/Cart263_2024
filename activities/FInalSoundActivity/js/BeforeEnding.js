@@ -10,7 +10,7 @@
 // NOTE: Even though at the moment Animation does *not* define a keyPressed()
 // method, the fact it extends State means it *does* have one when it is called
 // in the main program. This is a key benefit of extending State.
-class Question3 extends State {
+class BeforeEnding extends State {
     // Acts as the setup() of the state, called when the
     // state is created. Creates a this.krab object and sets its
     // velocity.
@@ -28,6 +28,7 @@ class Question3 extends State {
         vy: 0,
         speed: 3.5, //3.5 set it back
       }
+
       this.troll = {
         x: 650,
         y: 570,
@@ -37,30 +38,10 @@ class Question3 extends State {
 
     
         }
-    this.question1 = {
-        x: 700,
-        y: 470,
-        w: 550,
-        h: 150,
-        size: 120,
 
-        active: true,
-      };
     //   krab speed
     this.krab.vx = this.krab.speed;
 
-// typewriter function
-    this.typewriter = new Typewriter();
-    
-this.typewriter.typewrite(
-
-  `What Gets Wet While Drying?
-  \n Nobody has ever gotten past this one hehe`,
-
-  windowWidth - 670,
-  windowHeight / 1.4
-  
-);
 }
     // draw()
     // Called every frame in the main script. Handles what the title
@@ -78,40 +59,53 @@ this.typewriter.typewrite(
       this.display();
       this.gameStarter();
       this.music();
-        this.question();
+   
+        this.move();
     }
 music(){
 
 // sounds
-if(dialogueOn == false){
+if(dialogueOn == true){
     dialogue.play();
     dialogue.setVolume(0.1)
     userStartAudio
     console.log("playsound")
-    dialogueOn = true
+    dialogueOn = false
     
 }
 }
-
-
-//   typewriter
-question(){
-    push();
-
-    image(
-    imgText,
-      this.question1.x,
-      this.question1.y,
-    //   this.question1.size,
-      this.question1.w,
-      this.question1.h
-    );
-    this.typewriter.display();
-    pop();
-
-
-
-}
+move() {
+     
+    // apperently important to turn everything lowercase
+    let lowerStr = "";
+    if(mySpeechRec.resultString) {
+        lowerStr= mySpeechRec.resultString.toLowerCase();
+    }
+   
+    let mostRecentWord = lowerStr.split(" ").pop();
+  
+    if (mostRecentWord == "stop") {
+     this.krab.vx = 0;
+     this.krab.vy = 0;
+    }
+    if (mostRecentWord == "up") {
+        this.krab.vx = 0;
+     this.krab.vy = -2;
+    }
+    if (mostRecentWord == "down") {
+     this.krab.vx = 0;
+     this.krab.vy = 2;
+    //  console.log("TestDOWN")
+    }
+    if (mostRecentWord == "left") {
+     this.krab.vx = -2;
+     this.krab.vy = 0;
+    }
+    if (mostRecentWord == "right") {
+     this.krab.vx = 2;
+     this.krab.vy = 0;
+    }
+    }
 
     // display()
     // Displays the this.krab as an ellipse on the canvas
@@ -121,21 +115,17 @@ question(){
     image(imgkrab, this.krab.x, this.krab.y, this.krab.size, this.krab.size);
     pop();
     push();
-    image(imgAlertTroll, this.troll.x, this.troll.y, this.troll.size, this.troll.size);
+    image(imgDefeatedTroll, this.troll.x, this.troll.y, this.troll.size, this.troll.size);
     pop();
 
     }
 gameStarter(){
-    let lowerStr = "";
-    if(mySpeechRec.resultString) {
-        lowerStr= mySpeechRec.resultString.toLowerCase();
-    }
-  
-    let mostRecentWord = lowerStr.split(" ").pop();
-    if (mostRecentWord == "towel") {
-        currentState = new Question3After(); //if mouse clicks over choice 1 bad ending
-    }
-  
+    if(this.krab.y > 840){
+        this.krab.vx = 0;
+        this.krab.vy = 0;
 
+        currentState = new GoodEnding();
+        // }
+}
 }
 }

@@ -16,6 +16,7 @@ let imgStopTroll;
 let imgDefeatedTroll;
 let imgAwakeTroll;
 
+
 // sounds/ music
 let backgroundForest;
 let TitleMusic;
@@ -40,6 +41,7 @@ function preload() {
 
     // title related
     imgTitleGif = loadImage("assets/images/TitleSceneAlpha.gif")
+    imgGoodEnding = loadImage("assets/images/happy ending.gif");
     // imgTitleScene = loadImage("assets/images/Krab Title gif.gif")
     // krab related
     imgkrab = loadImage("assets/images/Krab.png");
@@ -76,7 +78,7 @@ function setup() {
   // We can set the current state by creating a NEW object from the class
   // representing that state! This will call its constructor() which will work
   // like the `setup()` for that state.
-  currentState = new Start(); // REVERT TO TITLE AFTER
+  currentState = new Title(); // REVERT TO TITLE AFTER
 
   // Text settings
   textSize(50);

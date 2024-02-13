@@ -41,7 +41,7 @@ class Question2 extends State {
         x: 700,
         y: 470,
         w: 550,
-        h: 150,
+        h: 200,
         size: 120,
 
         active: true,
@@ -54,11 +54,12 @@ class Question2 extends State {
     
 this.typewriter.typewrite(
 
-  `HEY, DO YOU THINK YOU CAN CROSS THIS BRIDGE
-  \n WITHOUT ANSWERING MY RIDDLES?!?!? `,
+  `I Have No Feet, No Hands, No Wings
+  \n But I Climb To The Sky.
+  \n What Am I?  `,
 
   windowWidth - 670,
-  windowHeight / 1.4
+  windowHeight / 1.3
   
 );
 }
@@ -110,15 +111,6 @@ question(){
     pop();
 
 
-// this.typewriter = new Typewriter();
-// this.typewriter.typewrite(
-//   `what is the number 2 added to the number 4= ?? 
-//   \n A) Seashell , B) Red,  C)6`,
-
-//   windowWidth - 920,
-//   windowHeight / 2.2
-// );
-// 
 
 }
 
@@ -141,12 +133,10 @@ gameStarter(){
     }
   
     let mostRecentWord = lowerStr.split(" ").pop();
-    if (mostRecentWord == "No") {
-        currentState = new Question1(); //if mouse clicks over choice 1 bad ending
+    if (mostRecentWord == "smoke") {
+        currentState = new Question2After(); //if mouse clicks over choice 1 bad ending
     }
-    if (mostRecentWord == "yes") {
-        currentState = new SecretEnding(); //if mouse clicks over choice 1 bad ending
-    }
+  
 
 }
 }
