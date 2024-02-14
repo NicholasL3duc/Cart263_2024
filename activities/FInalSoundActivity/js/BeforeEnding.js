@@ -40,7 +40,8 @@ class BeforeEnding extends State {
         }
 
     //   krab speed
-    this.krab.vx = this.krab.speed;
+    // this.krab.vx = this.krab.speed;
+    // this.krab.vy = this.krab.speed;
 
 }
     // draw()
@@ -61,6 +62,8 @@ class BeforeEnding extends State {
       this.music();
    
         this.move();
+        this.krab.x += this.krab.vx;
+        this.krab.y += this.krab.vy;
     }
 music(){
 

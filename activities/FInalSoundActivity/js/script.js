@@ -22,10 +22,13 @@ let backgroundForest;
 let TitleMusic;
 let exclamation;
 let dialogue;
+let EndingMusic;
+
 let backgroundForestOn = false;
 let TitleMusicOn = false;
 let exclamationOn = false;
 let dialogueOn = false;
+let EndingMusicOn = false;
 
 // timer
 let timer = 2
@@ -61,6 +64,7 @@ imgText = loadImage("assets/images/pixel-speech-bubble.png")
    //music
    backgroundForest = loadSound('assets/sounds/Pokemon- Mystery Dungeon Explorers of Sky- Apple Woods- Music [TubeRipper.com] (1).mp3')
    TitleMusic = loadSound('assets/sounds/TitleMusic.mp3')
+   EndingMusic = loadSound('assets/sounds/EndingMusic.mp3')
 //    sounds
     exclamation = loadSound('assets/sounds/pokemon-exclamation-mark-sound-effect.mp3')
     dialogue = loadSound('assets/sounds/Dialogue.mp3')
@@ -78,7 +82,7 @@ function setup() {
   // We can set the current state by creating a NEW object from the class
   // representing that state! This will call its constructor() which will work
   // like the `setup()` for that state.
-  currentState = new Title(); // REVERT TO TITLE AFTER
+  currentState = new BeforeEnding(); // REVERT TO TITLE AFTER
 
   // Text settings
   textSize(50);

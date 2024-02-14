@@ -22,10 +22,25 @@ class GoodEnding {
       text("YOU WON !!!", width / 2 , height / 5);
       textSize(60);
       text("You are a The Hero", width / 2, height / 3);
-    //   image(imgGoodEnding, 250, 250, 250, 250);
+      // image(imgGoodEnding, 250, 250, 250, 250);
       pop();
+
+
+      this.music();
+    
     }
-  
+  music(){
+
+// sounds
+if(EndingMusicOn == false){
+    EndingMusic.play();
+    EndingMusic.setVolume(0.1)
+    userStartAudio
+    console.log("playsound")
+    EndingMusicOn = true
+    
+}
+}
 
   }
   

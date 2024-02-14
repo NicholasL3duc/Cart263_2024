@@ -152,10 +152,10 @@ pop();
             exclamation.play()
             // if (timer == 0) {
             currentState = new Start
-            // }
-        }
+            }
+        
     //    exclamation.stop()
      image(imgPoint,650,500,80,70)
         }
+        }
     }
-}
