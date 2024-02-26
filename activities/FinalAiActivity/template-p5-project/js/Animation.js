@@ -25,28 +25,8 @@ this.whale = {
 }
 
 
-win() {
-  push();
-  textSize(64);
-  fill(255, 150, 150);
-  textAlign(CENTER, CENTER);
-  text("Yummy!", width / 2, height / 2);
-  text("You Won, Congrats", width / 2, height / 1.5);
-  image(imghappy, 600, 50, 200, 200);
-  pop();
-}
-loss() {
-  push();
-  textSize(40);
-  fill(189, 38, 21);
-  textAlign(CENTER, CENTER);
-  text("Yucky!! :(", width / 2, height / 2);
-  fill(190, 50, 50);
-  text("you lose try again", width / 2, height / 1.5);
-  image(imgDead, 600, 100, 300, 300);
 
-  pop();
-}
+
 setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -111,22 +91,15 @@ setup() {
  draw() {
   background(0, 0, 139);
   // all the states
-  if (currentState === "title") {
-    title();
-  } else if (currentState === "simulation") {
-    simulation();
-  } else if (currentState === "win") {
-    win();
-  } else if (currentState === "loss") {
-    loss();
-  }
+  
+  this.simulation();
   // constraint the whale/user to the canvas
   this.whale.x = constrain(this.whale.x, 0, windowWidth);
   this.whale.y = constrain(this.whale.y, 0, windowHeight);
 }
  simulation() {
-  moveWhale(this.whale);
-  for (this.fish of school) {
+//   moveWhale(this.whale);
+  for (fish of school) {
     moveFish(this.fish);
     displayFish(this.fish);
     overlapCheckFish();
@@ -171,29 +144,29 @@ setup() {
   trash.x = constrain(trash.x, 0, width);
   trash.y = constrain(trash.y, 0, height);
 }
- moveWhale(whale) {
-  if (keyIsDown(87)) {
-    //moving using the W key
-    whale.vy = -whale.speed;
-  } else if (keyIsDown(83)) {
-    //moving using the A key
-    whale.vy = whale.speed;
-  } else {
-    whale.vy = 0;
-  }
+//  moveWhale(whale) {
+//   if (keyIsDown(87)) {
+//     //moving using the W key
+//     whale.vy = -whale.speed;
+//   } else if (keyIsDown(83)) {
+//     //moving using the A key
+//     whale.vy = whale.speed;
+//   } else {
+//     whale.vy = 0;
+//   }
 
-  if (keyIsDown(68)) {
-    // moving using the S key
-    whale.vx = whale.speed;
-  } else if (keyIsDown(65)) {
-    // moving using the D key
-    whale.vx = -whale.speed;
-  } else {
-    whale.vx = 0;
-  }
-  whale.x += whale.vx;
-  whale.y += whale.vy;
-}
+//   if (keyIsDown(68)) {
+//     // moving using the S key
+//     whale.vx = whale.speed;
+//   } else if (keyIsDown(65)) {
+//     // moving using the D key
+//     whale.vx = -whale.speed;
+//   } else {
+//     whale.vx = 0;
+//   }
+//   whale.x += whale.vx;
+//   whale.y += whale.vy;
+// }
  displayWhale() {
   // display for whale
   push();
