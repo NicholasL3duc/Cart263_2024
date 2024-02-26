@@ -18,7 +18,7 @@ let school = [];
 let garbage = [];
 
 function preload() {
-    imgTitleGif = loadImage("template-p5-project/assets/images/imgTitleGif.gif")
+    imgTitleGif = loadImage("assets/images/imgTitleGif.gif")
     imgWhale = loadImage(`assets/images/whale.png`);
     imgTrash = loadImage(`assets/images/trash.png`);
     imgFish = loadImage(`assets/images/fish.webp`);
