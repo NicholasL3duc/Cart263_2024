@@ -11,7 +11,7 @@ class Title extends State {
     // this.music()
       background(imgTitleGif,1300,800);
     // this.StartGame();
-    this.mousePressed();
+    this.keyPressed();
 
  
      
@@ -30,8 +30,8 @@ class Title extends State {
         
     //     pop();
 // }
-   mousePressed() {
-            if (currentState = new Title()) {
+   keyPressed() {
+    if (keyCode === 32) {
             currentState = new Animation();
             }
           }

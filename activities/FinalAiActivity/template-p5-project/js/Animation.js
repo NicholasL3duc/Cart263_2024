@@ -25,24 +25,6 @@ this.whale = {
 }
 
 
- preload() {
-
-}
-
-title() {
-  push();
-  textSize(45);
-  fill(140, 50, 100);
-  textAlign(CENTER, CENTER);
-  text(
-    "Eat All The Fish And Avoid The Trash!!!",
-
-    width / 2,
-    height / 2
-  );
-
-  pop();
-}
 win() {
   push();
   textSize(64);
@@ -129,24 +111,24 @@ setup() {
  draw() {
   background(0, 0, 139);
   // all the states
-  if (state === "title") {
+  if (currentState === "title") {
     title();
-  } else if (state === "simulation") {
+  } else if (currentState === "simulation") {
     simulation();
-  } else if (state === "win") {
+  } else if (currentState === "win") {
     win();
-  } else if (state === "loss") {
+  } else if (currentState === "loss") {
     loss();
   }
   // constraint the whale/user to the canvas
-  whale.x = constrain(whale.x, 0, windowWidth);
-  whale.y = constrain(whale.y, 0, windowHeight);
+  this.whale.x = constrain(this.whale.x, 0, windowWidth);
+  this.whale.y = constrain(this.whale.y, 0, windowHeight);
 }
  simulation() {
-  moveWhale(whale);
+  moveWhale(this.whale);
   for (this.fish of school) {
-    moveFish(fish);
-    displayFish(fish);
+    moveFish(this.fish);
+    displayFish(this.fish);
     overlapCheckFish();
     displayWhale();
   }
@@ -248,7 +230,7 @@ setup() {
     }
   }
   if (school.length === 0) {
-    state = `win`;
+    currentState = `win`;
   }
 }
 
@@ -257,7 +239,7 @@ setup() {
   for (this.trash of garbage) {
     this.g1 = dist(whale.x, whale.y, trash.x, trash.y);
     if (g1 < whale.size / 2 + trash.size / 2) {
-      state = "loss";
+      currentState = "loss";
     }
   }
 }
