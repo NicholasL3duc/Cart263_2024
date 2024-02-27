@@ -6,7 +6,7 @@ let pointerX, pointerY, knuckle, ring;
 let whale = {
     x: 250,
     y: 250,
-    size: 150,
+    size: 70,
     vx: 0,
     vy: 0,
     speed: 3.5,
@@ -71,9 +71,14 @@ let whale = {
     pop();
   }
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    //   push();
+    // // translate(video.width, 0);
+    // scale(-1, 1);
+    // image(video, 0, 0, width, height);
+    // pop();
+    createCanvas(640,480);
     //   array for fish
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 3; i++) {
       school[i] = createFish(random(0, width), random(0, height));
     }
   
@@ -86,8 +91,13 @@ function setup() {
     pointerY = windowHeight / 2;
 
   video = createCapture(VIDEO);
+  video 
   video.size(width, height);
-  video.hide();
+  push();
+  translate(video.width, 0);
+  scale(-1, 1);
+  image(video, 0, 0, width, height);
+  pop();
 
   handpose = ml5.handpose(video, modelReady);
 
@@ -106,7 +116,7 @@ function createFish(x, y) {
   let fish = {
     x: x,
     y: y,
-    size: 50,
+    size: 40,
     vx: 0,
     vy: 0,
     speed: 2,
@@ -117,7 +127,7 @@ function createTrash() {
   let trash = {
     x: x,
     y: y,
-    size: 100,
+    size: 20,
     vx: 0,
     vy: 0,
     speed: 1,
@@ -151,7 +161,7 @@ function modelReady() {
 }
 
 function draw() {
-  image(video, 0, 0, width, height);
+  image(video, 0, 0,width,height);
 
   background(0, 0, 139);
   // all the states
@@ -171,6 +181,7 @@ function draw() {
   drawKeypoints();
 
   Simulation();
+   
 }
 
 function Simulation() {
