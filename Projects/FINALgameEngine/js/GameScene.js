@@ -63,8 +63,35 @@ this.cursors = this.imput.keyboard.createCursorKeys();
 
 
 // item settings AKA Bones
-this.bones = this.physics
+this.bones = this.physics.add.group({
+    key: 'bones',
+    repeat: 11,
+    setXY: { x: 12, y: 0, stepX: 70}
+});
+{
+    bones.setBounceY(phaser.Math.FloatBetween(0.4, 0.8));
+}
 
-        }
+// collider settings for both player and items
+
+this.physics.add.collider(this.skelly, this.platforms); 
+this.physics.add.collider(this.skelly, this.movingPlatform);
+this.physics.add.collider(this.bones, this.platforms);
+this.physics.add.collider(this.bones, this.movingPlatform);
+
+this.add.overlap(this.skelly, this.bones, this.collectBones, null, this)
+ }
+
+ update ()
+ {
+
+    
+
+
+
+
+ }
+
+
     }
 
