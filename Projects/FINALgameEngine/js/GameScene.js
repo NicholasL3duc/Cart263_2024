@@ -1,7 +1,7 @@
 class GameScene extends Phaser.Scene {
 
 // Scenes
-player;
+skelly;
 bones;
 cursor;
 platforms;
@@ -32,10 +32,10 @@ this.add.image (400,300,'sky');
         this.movingPlatform.setVelocityX(50);
 
 // Mr.Skelly settings
-    this.player = this.physics.add.sprite(100,450,'skelly');
+    this.skelly = this.physics.add.sprite(100,450,'skelly');
 
-        this.player.setBounce(0.2);
-        this.player.setCOllideWorldsBounds(true);
+        this.skelly.setBounce(0.2);
+        this.skelly.setCOllideWorldsBounds(true);
 
 // animation settings
     this.anims.create( {
@@ -72,7 +72,7 @@ this.bones = this.physics.add.group({
     bones.setBounceY(phaser.Math.FloatBetween(0.4, 0.8));
 }
 
-// collider settings for both player and items
+// collider settings for both skelly and items
 
 this.physics.add.collider(this.skelly, this.platforms); 
 this.physics.add.collider(this.skelly, this.movingPlatform);
@@ -85,11 +85,36 @@ this.add.overlap(this.skelly, this.bones, this.collectBones, null, this)
  update ()
  {
 
+    const { left,right,up } = this.cursors;
     
+    if (left.isDown)
+{
+    this.skelly.setVelocityX(-160);
+    this.skelly.anims.play('left',true);
+}
+else if (right.isDown)
+{
+    this.skelly.setVelocityX(160);
+    this.skelly.anims.play('right',true);
+}
+else
+{
+this.skelly.setVelocityX(0);
+this.skelly.anims.play('turn');
+}
 
-
-
-
+if(up.isDown && this.skelly.body.touching.down)
+{
+    this.skelly.setVelocityY(-330);
+}
+if (this.movingPlatform.x >= 500)
+{
+    this.movingPlatform.setVelocityX(-50);
+}
+else if (this.movingPlatform.x <= 300)
+{
+    this.movingPlatform.setVelocityX(50);
+}
  }
 
 
