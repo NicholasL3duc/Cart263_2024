@@ -9,10 +9,10 @@ movingPlatform;
 
 preload()
 {
-    this.load.image('sky')
-    this.load.image('GraveYard')
-    this.load.image('bones')
-    this.load.spritesheet('skelly')
+    this.load.image('sky','assets/images/Graveyard.png')
+    this.load.image('platform','assets/images/platform.png')
+    this.load.image('bones','assets/images/bones.png')
+    this.load.spritesheet('skelly','assets/images/Download8683.png',{ frameWidth: 32, frameHeight: 48 });
 // NOTE : fix this later Nick (dumbass)
 
 }
@@ -21,10 +21,11 @@ create ()
 this.add.image (400,300,'sky');
 
 // platform settings 
-    this.platforms.create(400,568,'GraveYard').setScale(2).refreshBody();
     this.platforms = this.physics.add.staticGroup();
+    this.platforms.create(400,568,'platform').setScale(2).refreshBody();
+    
 
-    this.movingPlatform = this.physics.add.image(400,400,'GraveYard');
+    this.movingPlatform = this.physics.add.image(400,400,'platform');
 
     this.movingPlatform.setImmovable(true);
     this.movingPlatform.body.allowGravity = false;
@@ -35,7 +36,7 @@ this.add.image (400,300,'sky');
     this.skelly = this.physics.add.sprite(100,450,'skelly');
 
         this.skelly.setBounce(0.2);
-        this.skelly.setCOllideWorldsBounds(true);
+        this.skelly.setCollideWorldBounds(true);
 
 // animation settings
     this.anims.create( {
@@ -59,7 +60,7 @@ this.anims.create({
 });
 
 // cursor settings for keyboard
-this.cursors = this.imput.keyboard.createCursorKeys();
+this.cursors = this.input.keyboard.createCursorKeys();
 
 
 // item settings AKA Bones
@@ -68,8 +69,9 @@ this.bones = this.physics.add.group({
     repeat: 11,
     setXY: { x: 12, y: 0, stepX: 70}
 });
+for (const bones of this.bones.getChildren())
 {
-    bones.setBounceY(phaser.Math.FloatBetween(0.4, 0.8));
+    bones.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 }
 
 // collider settings for both skelly and items
@@ -79,7 +81,7 @@ this.physics.add.collider(this.skelly, this.movingPlatform);
 this.physics.add.collider(this.bones, this.platforms);
 this.physics.add.collider(this.bones, this.movingPlatform);
 
-this.add.overlap(this.skelly, this.bones, this.collectBones, null, this)
+this.physics.add.overlap(this.skelly, this.bones, this.collectBones, null, this)
  }
 
  update ()
@@ -135,7 +137,7 @@ else if (this.movingPlatform.x <= 300)
                 debug: false
             }
         },
-        scene: Example
+        scene: GameScene
     };
     
     const game = new Phaser.Game(config);
