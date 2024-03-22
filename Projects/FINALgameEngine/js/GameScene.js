@@ -7,14 +7,12 @@ cursor;
 platforms;
 movingPlatform;
 
-preload()
+preload ()
 {
-    this.load.image('sky','assets/images/Graveyard.png')
-    this.load.image('platform','assets/images/platform.png')
-    this.load.image('bones','assets/images/bones.png')
-    this.load.spritesheet('skelly','assets/images/Download8683.png',{ frameWidth: 32, frameHeight: 48 });
-// NOTE : fix this later Nick (dumbass)
-
+    this.load.image('sky', 'assets/images/Graveyard.png');
+    this.load.image('ground', 'assets/images/platform.png');
+    this.load.image('star', 'assets/images/bones.png');
+    this.load.spritesheet('dude', 'assets/images/dude.png', { frameWidth: 37, frameHeight: 48 });
 }
 create ()
 {
