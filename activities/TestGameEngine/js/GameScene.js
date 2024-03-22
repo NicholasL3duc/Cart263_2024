@@ -13,18 +13,14 @@ class Example extends Phaser.Scene
         this.load.image('star', 'assets/images/bones.png');
         this.load.spritesheet('dude', 'assets/images/dude.png', { frameWidth: 37, frameHeight: 48 });
     }
-
+//  NOTE TO SELF : chnage frameWidth to 37 for the clipping to be right
     create ()
     {
         this.add.image(400, 300, 'sky');
 
+// platform settings 
         this.platforms = this.physics.add.staticGroup();
-
         this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
-
-        // platforms.create(600, 400, 'ground');
-        // platforms.create(50, 250, 'ground');
-        // platforms.create(750, 220, 'ground');
 
         this.movingPlatform = this.physics.add.image(400, 400, 'ground');
 
@@ -32,10 +28,13 @@ class Example extends Phaser.Scene
         this.movingPlatform.body.allowGravity = false;
         this.movingPlatform.setVelocityX(50);
 
+        // player Settings
         this.player = this.physics.add.sprite(100, 450, 'dude');
 
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
+
+// animation for the sprites settings
 
         this.anims.create({
             key: 'left',
@@ -59,6 +58,8 @@ class Example extends Phaser.Scene
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
+//      Gravity for both the bones and player
+
         this.stars = this.physics.add.group({
             key: 'star',
             repeat: 11,
@@ -80,6 +81,8 @@ class Example extends Phaser.Scene
 
     update ()
     {
+        // Movement controls for player 
+
         const { left, right, up } = this.cursors;
 
         if (left.isDown)
@@ -115,6 +118,8 @@ class Example extends Phaser.Scene
             this.movingPlatform.setVelocityX(50);
         }
     }
+
+    // Bone collecting 
 
     collectStar (player, star)
     {

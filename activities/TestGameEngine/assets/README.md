@@ -1,3 +1,7 @@
 # Assets folder
+to whomever will read this, this activity was a tester for my final project as it was to see the posibilities of phisics and sprites animation for my final
 
-The assets folder should contain all the non-code parts of your project. For now there are folders for image files and sound files. If you needed to use font files, for example, you would create another folder called `fonts` and put them in there.
+Controls
+left,right and up on the arrow keys
+
+the code was taken from the library on phaser but modifided by yours truly
