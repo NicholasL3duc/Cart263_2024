@@ -6,8 +6,8 @@ class GameScene extends Phaser.Scene {
     preload() {
         this.cursors
         this.cameras.main.setBackgroundColor(0x9900e3)
-        this.load.image('tiles', '../assets/Tilemap/purple.png')
-        this.load.tilemapTiledJSON('map', '../scripts/purpleMapdemo.json')
+        this.load.image('tiles', '../assets/Maps/testMap.png')
+        this.load.tilemapTiledJSON('map', '..assets/Maps/testMap..tmj')
 
         this.load.spritesheet('characters', '../assets/characters.png', {
             frameWidth: 16,
