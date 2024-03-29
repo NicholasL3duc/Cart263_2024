@@ -8,5 +8,6 @@ constructor(scene, x, y, textureKey, type){
 this.type = type
 this.isDead = false
 }
+explode 
 
 }
