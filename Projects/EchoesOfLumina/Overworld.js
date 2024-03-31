@@ -16,6 +16,7 @@ class Overworld {
    
       const x = 5;
       const y = 6;
+      
   //  shadow on player
       const shadow = new Image();
       shadow.onload = () => {
