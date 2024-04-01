@@ -4,6 +4,9 @@ class GameObject {
         this.x = config.x || 0;
         this.y = config.y || 0;
         // different apperance for sprits 
-        this.sprite = null;
+        this.sprite = new Sprite({
+            GameObject : this,
+            src: config.src || "assets/images/characters/people/hero.png"
+        })
     }
 }
