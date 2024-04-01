@@ -5,7 +5,7 @@ class GameObject {
         this.y = config.y || 0;
         // different apperance for sprits 
         this.sprite = new Sprite({
-            GameObject : this,
+            gameObject : this,
             src: config.src || "assets/images/characters/people/hero.png"
         })
     }
