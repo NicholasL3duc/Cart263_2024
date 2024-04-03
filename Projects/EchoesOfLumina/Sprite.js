@@ -44,7 +44,7 @@ class Sprite {
     this.isLoaded && ctx.drawImage(this.image,
       0,0,
       32,32,
-      // position of sprite (change this later for different sprite sheet)
+      // position of sprite (change this later for different sprite sheet) also shadow x,y
       x,y,
       32,32
     );
