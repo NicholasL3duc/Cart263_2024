@@ -1,81 +1,63 @@
 class OverworldMap {
-    // core building block of the Maps
-    constructor(config){
-    this.gameObjects =config.gameObjects
-
-
-    this.lowerImage = new Image();
-    this.lowerImage.Src = config.lowerSrc;
-
-    this.upperImage = new Image();
-    this.upperImage.Src = config.upperSrc;
-        }
-
-// controls form the background images
-drawLowerImage(ctx) {
-    ctx.drawImage(this.lowerImage, 0, 0)
-
-}
-// controls for the forground 
-drawLUpperImage(ctx) {
-    ctx.drawImage(this.upperImage, 0, 0)
-
-}
-}
-
-window.OverworldMaps = {
- MainTown : {
-    lowersrc: "assets/images/Maps/DemoLower.png",
-     upperSrc: "assets/images/Maps/DemoUpper.png",
-    //  UnComment this when you figure out the map layout
-    gameObjects: {
+    constructor(config) {
+        // core building block of the Maps
+      this.gameObjects = config.gameObjects;
+  
+      this.lowerImage = new Image();
+      this.lowerImage.src = config.lowerSrc;
+  
+      this.upperImage = new Image();
+      this.upperImage.src = config.upperSrc;
+    }
+  // controls form the background images
+  
+    drawLowerImage(ctx) {
+      ctx.drawImage(this.lowerImage, 0, 0)
+    }
+  // controls for the forground 
+    drawUpperImage(ctx) {
+      ctx.drawImage(this.upperImage, 0, 0)
+    } 
+  }
+  
+  window.OverworldMaps = {
+    DemoRoom: {
+      lowerSrc: "assets/images/maps/DemoLower.png",
+      upperSrc: "assets/images/maps/DemoUpper.png",
+       //  UnComment this when you figure out the map layout
+      gameObjects: {
         hero: new GameObject({
-            x: 5,
-            y: 6,
-
+          x: 5,
+          y: 6,
         }),
         npc1: new GameObject({
-            x:7,
-            y: 9,
-            src: "assets/images/characters/people/npc1.png"
+          x: 7,
+          y: 9,
+          src: "assets/images/characters/people/npc1.png"
         })
-    }
- },
- Sewers : {
-    lowersrc: "assets/images/Maps/KitchenLower.png",
-     upperSrc: "assets/images/Maps/KitchenUpper.png", 
-    gameObjects: {
+      }
+    },
+    Kitchen: {
+      lowerSrc: "assets/images/maps/KitchenLower.png",
+      upperSrc: "assets/images/maps/KitchenUpper.png",
+      gameObjects: {
         hero: new GameObject({
-            x: 3,
-            y: 1,
-
+          x: 3,
+          y: 5,
         }),
-        npc1: new GameObject({
-            x:9,
-            y: 2,
-            src: "assets/images/characters/people/npc1.png"
+        npcA: new GameObject({
+          x: 9,
+          y: 6,
+          src: "assets/images/characters/people/npc2.png"
         }),
-        npc2: new GameObject({
-            x:10,
-            y: 4,
-            src: "assets/images/characters/people/npc2.png"
+        npcB: new GameObject({
+          x: 10,
+          y: 8,
+          src: "assets/images/characters/people/npc3.png"
         })
-    }
- },
- HouseQuest : {
-
-
- },
-
- Shop : {
-
-
- },
-
-}
-    
-
-
+      }
+    },
+  }
 
 
 
