@@ -3,15 +3,19 @@ constructor(){
     this.heldDirections = [];
 
     this.map = {
+        // go up
         "ArrowUp" : "up",
-        "ArrowDown" : "down",
-        "ArrowLeft" : "left",
-        "ArrowRight" : "right",
-        // wasd codes
         "KeyW" : "up",
+        // go down
+        "ArrowDown" : "down",
         "KeyS" : "down",
+        // go left
+        "ArrowLeft" : "left",
         "KeyA" : "left",
+        // go right
+        "ArrowRight" : "right",
         "KeyD" : "right",
+
     }
 
 }
@@ -33,7 +37,7 @@ document.addEventListener("keydown", e => {
 document.addEventListener("keyup",  e => {
     const dir = this.map[e.code];
     const index = this.heldDirections.indexOf(dir);
-    if (index > 1) {
+    if (index > -1) {
         this.heldDirections.splice(index, 1);
         console.log(this.heldDirections)
     }
