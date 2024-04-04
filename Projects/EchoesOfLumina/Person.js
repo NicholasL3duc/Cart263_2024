@@ -3,11 +3,11 @@ class Person extends GameObject {
     constructor(config){
         // grid based moving (aka: move until you reach that point)
         super(config);
-        this.movingProgressRemaining = 32;
+        this.movingProgressRemaining = 0;
 
 
 
-        
+
 // movement Settings 
         this.directionUpdate = {
             "up": ["y", -1],
@@ -19,6 +19,12 @@ class Person extends GameObject {
     }
     update(state){
         this.updatePosition();
+
+        if (this.movingProgressRemaining === 0 && state.arrow) {
+            this.direction = state.arrow;
+            this.movingProgressRemaining = 16;
+
+        }
     }
 
     updatePosition(){
