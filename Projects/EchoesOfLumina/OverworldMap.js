@@ -3,6 +3,8 @@ class OverworldMap {
         // core building block of the Maps
       this.gameObjects = config.gameObjects;
   
+        this.walls = config.walls || {};
+
       this.lowerImage = new Image();
       this.lowerImage.src = config.lowerSrc;
   
@@ -26,6 +28,11 @@ class OverworldMap {
         utils.withGrid(6) - cameraPerson.y,
         )
     } 
+
+    isSpaceTaken(currentX, currentY, direction) {
+        const {x,y} = utils.nextPosition(currentX, currentY, direction);
+        return this.walls [`${x},${y}`] || false;
+    }
   }
   
   window.OverworldMaps = {
@@ -37,13 +44,21 @@ class OverworldMap {
         hero: new Person({
         isPlayerControlled: true,
           x: utils.withGrid(5),
-          y: utils.withGrid(6),
+          y: utils.withGrid(5),
         }),
         npc1: new Person({
           x: utils.withGrid(7),
           y: utils.withGrid(9),
           src: "assets/images/characters/people/npc1.png"
         })
+      },
+      walls: {
+        // utility to atomate the values
+        // [] dynamic key
+        [utils.asGridCoord(0,0)] : true,
+        [utils.asGridCoord(7,9)] : true,
+        [utils.asGridCoord(16,9)] : true,
+        [utils.asGridCoord(100,0)] : true,
       }
     },
     Kitchen: {
