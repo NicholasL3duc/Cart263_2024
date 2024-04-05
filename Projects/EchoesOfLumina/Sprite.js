@@ -37,7 +37,7 @@ class Sprite {
     this.currentAnimation = "idle-down"//config.currentAnimation || "idle-down";
     this.currentAnimationFrame = 0;
 // amount of frames (less goes quicker) reddit says 16 is basic
-this.animationFrameLimit = config.animationFrameLimit || 16;
+this.animationFrameLimit = config.animationFrameLimit || 6;
 this.animationFrameProgress = this.animationFrameLimit;
 
   // game object reference 

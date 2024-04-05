@@ -38,7 +38,16 @@ class Person extends GameObject {
 }
 
 updateSprite(state){
-this.sprite.setAnimation("idle-down"+this.direction);
+
+ if (this.isPlayerControlled && this.movingProgressRemaining === 0 && !state.arrow) {
+    this.sprite.setAnimation("idle-"+this.direction);
+    return;
+    }
+
+if (this.movingProgressRemaining > 0) {
+    this.sprite.setAnimation("walk-"+this.direction);
+
+}
 
 }
 
