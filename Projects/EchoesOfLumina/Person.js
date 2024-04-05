@@ -5,7 +5,7 @@ class Person extends GameObject {
         super(config);
         this.movingProgressRemaining = 0;
 
-
+        this.isPlayerControlled = config.isPlayerControlled || false;
 
 
 // movement Settings 
@@ -28,7 +28,7 @@ class Person extends GameObject {
     }
 
     updatePosition(){
-        if(this.movingProgressRemaining > 0 ){
+        if(this.isPlayerControlled && this.movingProgressRemaining > 0 ){
         const [property, change] = this.directionUpdate[this.direction];
         this[property] += change;
         this.movingProgressRemaining -= 1;

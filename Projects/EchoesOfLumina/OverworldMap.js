@@ -27,12 +27,13 @@ class OverworldMap {
        //  UnComment this when you figure out the map layout
       gameObjects: {
         hero: new Person({
+        isPlayerControlled: true,
           x: utils.withGrid(5),
           y: utils.withGrid(6),
         }),
-        // npc1: new GameObject({
-        //   x: 7,
-        //   y: 9,
+        // npc1: new Person({
+        //   x: utils.withGrid(7),
+        //   y: utils.withGrid(9),
         //   src: "assets/images/characters/people/npc1.png"
         // })
       }
