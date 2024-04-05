@@ -30,7 +30,7 @@ class Sprite {
       "idle-left": [ [0,3] ],
       // Walk frame (based on my spreed sheet) NOTE: adjust height 
       "walk-down": [ [1,0],[0,0], [3,0], [0,0],  ],
-      "walk-right": [ [1,0],[0,1], [3,1], [0,1],  ],
+      "walk-right": [ [1,1],[0,1], [3,1], [0,1],  ],
       "walk-up": [ [1,2],[0,2], [3,2], [0,2],  ],
       "walk-left": [ [1,3],[0,3], [3,3], [0,3],  ],
     }
