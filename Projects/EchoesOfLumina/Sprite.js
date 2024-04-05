@@ -25,9 +25,16 @@ class Sprite {
 // frame animation settings
     this.animations = config.animations || {
       "idle-down": [ [0,0] ],
+      "idle-right": [ [0,1] ],
+      "idle-up": [ [0,2] ],
+      "idle-left": [ [0,3] ],
+      // Walk frame (based on my spreed sheet) NOTE: adjust height 
       "walk-down": [ [1,0],[0,0], [3,0], [0,0],  ],
+      "walk-right": [ [1,0],[0,1], [3,1], [0,1],  ],
+      "walk-up": [ [1,2],[0,2], [3,2], [0,2],  ],
+      "walk-left": [ [1,3],[0,3], [3,3], [0,3],  ],
     }
-    this.currentAnimation = "walk-down"//config.currentAnimation || "idle-down";
+    this.currentAnimation = "idle-down"//config.currentAnimation || "idle-down";
     this.currentAnimationFrame = 0;
 // amount of frames (less goes quicker) reddit says 16 is basic
 this.animationFrameLimit = config.animationFrameLimit || 16;
@@ -40,6 +47,31 @@ this.animationFrameProgress = this.animationFrameLimit;
   get frame(){
     return this.animations[this.currentAnimation][this.currentAnimationFrame]
   }
+
+  setAnimation(key){
+    if (this.currentAnimation !== key) {
+      this.currentAnimation = key;
+      this.currentAnimationFrame = 0;
+      // caddence counter
+      this.animationFrameProgress = this.animationFrameLimit;
+    }
+  }
+
+updateAnimationProgress(){
+// frame tick 
+if (this.animationFrameProgress > 0) {
+  this.animationFrameProgress -= 1;
+  return;
+}
+// reset tick
+this.animationFrameProgress = this.animationFrameLimit;
+this.currentAnimationFrame += 1;
+
+if(this.frame === undefined){
+  this.currentAnimationFrame = 0;
+}
+
+}
 
   draw(ctx) {
     const x = this.gameObject.x - 8;
@@ -56,7 +88,12 @@ this.animationFrameProgress = this.animationFrameLimit;
       // position of sprite (change this later for different sprite sheet) also shadow x,y
       x,y,
       32,32
-    );
-  };
-};
+    )
+
+
+    this.updateAnimationProgress();
+
+  }
+
+}
 
