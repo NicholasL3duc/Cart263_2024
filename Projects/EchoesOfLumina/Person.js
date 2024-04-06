@@ -18,18 +18,35 @@ class Person extends GameObject {
 // array for the movement above
     }
     update(state){
+        if(this.movingProgressRemaining > 0 ){
         this.updatePosition();
-        this.updateSprite(state);
-        if (this.movingProgressRemaining === 0 && state.arrow) {
-            this.direction = state.arrow;
-            console.log (state.map.isSpaceTaken(this.x, this.y, this.direction));
-            this.movingProgressRemaining = 16;
+        } else {
 
+        }
+        this.updateSprite(state);
+
+        if (this.isPlayerControlled && this.movingProgressRemaining  === 0 && state.arrow) {
+            this.startBehavior(state, {
+                type: "walk",
+                direction: state.arrow
+            })
         }
     }
 
+    //  this is to avoid the monster from getting stuck
+    startBehavior(state, behavior){
+        this.direction = behavior.direction;
+        // check if walk
+        if (behavior.type === "walk")
+        if (state.map.isSpaceTaken(this.x, this.y, this.direction)){
+        return;
+        }
+        this.movingProgressRemaining = 16;
+        
+    }
+
     updatePosition(){
-        if(this.isPlayerControlled && this.movingProgressRemaining > 0 ){
+
         const [property, change] = this.directionUpdate[this.direction];
         this[property] += change;
         this.movingProgressRemaining -= 1;
