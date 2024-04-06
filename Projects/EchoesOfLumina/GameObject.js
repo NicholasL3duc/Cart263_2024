@@ -10,6 +10,14 @@ class GameObject {
             src: config.src || "assets/images/characters/people/hero.png"
         })
     }
+
+mount(map) {
+    console.log("mount check")
+    this.isMounted = true;
+    map.addWall(this.x, this.y)
+}
+
+
     update(){
 
 

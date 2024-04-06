@@ -22,15 +22,16 @@ class Person extends GameObject {
         this.updatePosition();
         } else {
 
+            // arrow pressed when needed (no movement in cut scenes)
+            if (this.isPlayerControlled && state.arrow) {
+                this.startBehavior(state, {
+                    type: "walk",
+                    direction: state.arrow
+                })
+            }
+            this.updateSprite(state);
         }
-        this.updateSprite(state);
 
-        if (this.isPlayerControlled && this.movingProgressRemaining  === 0 && state.arrow) {
-            this.startBehavior(state, {
-                type: "walk",
-                direction: state.arrow
-            })
-        }
     }
 
     //  this is to avoid the monster from getting stuck
@@ -53,19 +54,16 @@ class Person extends GameObject {
     }
 
 
-}
 
-updateSprite(state){
 
- if (this.isPlayerControlled && this.movingProgressRemaining === 0 && !state.arrow) {
-    this.sprite.setAnimation("idle-"+this.direction);
-    return;
+updateSprite(){
+
+    if (this.movingProgressRemaining > 0) {
+        this.sprite.setAnimation("walk-"+this.direction);
+        return;
     }
 
-if (this.movingProgressRemaining > 0) {
-    this.sprite.setAnimation("walk-"+this.direction);
-
-}
+    this.sprite.setAnimation("idle-"+this.direction);
 
 }
 
