@@ -39,7 +39,7 @@ class OverworldMap {
 
 //  this determins if mount is possible
         o.mount(this);
-        
+
      })
     }
 
@@ -51,7 +51,7 @@ class OverworldMap {
     }
     moveWall(wasX, wasY, direction) {
         // removes the past wall
-        this.removeWallwalls(wasX, wasY);
+        this.removeWall(wasX, wasY);
         // creates a new one but offest from the original
         const {x,y} = utils.nextPosition(wasX, wasY, direction);
         // places new wall
@@ -81,7 +81,7 @@ class OverworldMap {
       walls: {
         // utility to atomate the values
         // [] dynamic key
-        [utils.asGridCoord(0,0)] : true,
+        [utils.asGridCoord(0,0 && 0,29)] : true,
         [utils.asGridCoord(7,9)] : true,
         [utils.asGridCoord(16,9)] : true,
         [utils.asGridCoord(100,0 && 0,100)] : true,
