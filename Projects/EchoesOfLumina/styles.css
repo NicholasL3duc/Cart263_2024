@@ -1,20 +1,24 @@
-
 * {
-    box-sizing: border-box;
-}
-
-body {
-    background: #555;
+    box-sizing:border-box;
+  }
+  
+  body {
+    background: #333;
     padding: 0;
     margin: 0;
     overflow: hidden;
-}
-/* game sizing (change for mac) or dont, you do you nick */
-.game-container {
-    position: relative;
+  }
+  
+  .game-container {
+    position: relative; 
     width: 352px;
     height: 198px;
     margin: 0 auto;
-    margin-top: 20px;
-    outline: 1px solid #fff 
-}
+    outline: 1px solid #fff;
+  
+    transform: scale(3) translateY(50%);
+  }
+  
+  .game-container canvas {
+    image-rendering: pixelated;
+  }

@@ -35,10 +35,13 @@ class OverworldMap {
     }
 
     mountObject() {
-     Object.values(this.gameObjects).forEach(o =>{
+     Object.keys(this.gameObjects).forEach(key =>{
+
+      let object = this.gameObjects[key];
+      object.id = key;
 
 //  this determins if mount is possible
-        o.mount(this);
+        object.mount(this);
 
      })
     }
@@ -72,11 +75,31 @@ class OverworldMap {
           x: utils.withGrid(5),
           y: utils.withGrid(5),
         }),
-        npc1: new Person({
+        GrimReaper: new Person({
           x: utils.withGrid(7),
           y: utils.withGrid(9),
-          src: "assets/images/characters/people/npc1.png"
-        })
+          src: "assets/images/characters/people/npc1.png",
+          behaviorLoop: [
+            { type: "stand", direction: "left", time: 800 },
+            { type: "stand", direction: "up", time: 800 },
+            { type: "stand", direction: "right", time: 800 },
+            { type: "stand", direction: "up", time: 800 },
+
+          ]
+        }),
+        npcA: new Person({
+          x: utils.withGrid(16,9),
+          y: utils.withGrid(9),
+          src: "assets/images/characters/people/npc2.png",
+          // idle movement tester ( will change later for the death cutscene)
+          behaviorLoop: [
+            { type: "walk", direction: "left" },
+            { type: "stand", direction: "up", time: 800 },
+            { type: "walk", direction: "up" },
+            { type: "walk", direction: "right" },
+            { type: "walk", direction: "down" },
+          ]
+        }),
       },
       walls: {
         // utility to atomate the values
