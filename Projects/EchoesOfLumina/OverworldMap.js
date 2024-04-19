@@ -10,6 +10,9 @@ class OverworldMap {
   
       this.upperImage = new Image();
       this.upperImage.src = config.upperSrc;
+
+
+      this.isCutscenePlaying = false;
     }
   // controls form the background images
   

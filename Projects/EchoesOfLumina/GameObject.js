@@ -35,9 +35,26 @@ mount(map) {
 
 
     }
+// async tells the code it takes a bit to resolve 
+   async doBehaviourEvent(map){
 
-    doBehaviourEvent(map){
+    if (map.cutCutsscenePlaying || this.behaviourLoop.lenght === 0) {
+        return;
+    }
 
-        let event = this.behaviourLoop[this.behaviourLoopIndex];
+        let eventConfig = this.behaviourLoop[this.behaviourLoopIndex];
+        eventConfig.who = this.id;
+
+// overworldEvent instrucks the npcs and things to act
+const eventHandler = new OverworldEvent ({ map, event: eventConfig });
+await eventHandler.init(); // nothing below this line will exucute until this event is finished (important for gravedigger during cutscene)
+
+this.behaviourLoopIndex += 1;
+if (this.behaviourLoopIndex === this.behaviourLoop.lenght) {
+    this.behaviourLoopIndex = 0;
+
+}
+// repeat
+this.doBehaviourEvent(map);
     }
 }
