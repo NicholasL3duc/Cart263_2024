@@ -6,7 +6,7 @@ class OverworldEvent {
   //  once resolves happen (game objects line 50) will pass 
     stand(resolve) {
       const who = this.map.gameObjects[ this.event.who ];
-      who.startBehavior({
+      who.startbehavior({
         map: this.map
       }, {
         type: "stand",
@@ -26,7 +26,7 @@ class OverworldEvent {
   
     walk(resolve) {
       const who = this.map.gameObjects[ this.event.who ];
-      who.startBehavior({
+      who.startbehavior({
         map: this.map
       }, {
         type: "walk",

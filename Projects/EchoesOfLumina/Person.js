@@ -26,7 +26,7 @@ class Person extends GameObject {
               // arrow pressed when needed (no movement in cut scenes)
   
         if (!state.map.isCutscenePlaying && this.isPlayerControlled && state.arrow) {
-          this.startBehavior(state, {
+          this.startbehavior(state, {
             type: "walk",
             direction: state.arrow
           })
@@ -36,7 +36,7 @@ class Person extends GameObject {
     }
       //  this is to avoid the monster from getting stuck
   
-    startBehavior(state, behavior) {
+    startbehavior(state, behavior) {
       this.direction = behavior.direction;
               // check if walk
   
@@ -45,7 +45,7 @@ class Person extends GameObject {
         if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
   
           behavior.retry && setTimeout(() => {
-            this.startBehavior(state, behavior)
+            this.startbehavior(state, behavior)
           }, 10);
   
           return;
