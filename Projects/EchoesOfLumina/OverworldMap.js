@@ -48,7 +48,25 @@ class OverworldMap {
 
      })
     }
+    async startCutscene(events) {
+      this.isCutscenePlaying = true;
+  
+      for (let i=0; i<events.length; i++) {
+        const eventHandler = new OverworldEvent({
+          event: events[i],
+          map: this,
+        })
+        await eventHandler.init();
+        
+      }
+  
+      
+      this.isCutscenePlaying = false;
+      // resets idle behaviour after event
+      object.values(this.gameObjects).forEach(object => object.doBehaviourEvent(this))
 
+    }
+  
     addWall(x,y) {
         this.walls [`${x},${y}`] = true;
     }
@@ -79,8 +97,8 @@ class OverworldMap {
           y: utils.withGrid(5),
         }),
         GrimReaper: new Person({
-          x: utils.withGrid(7),
-          y: utils.withGrid(9),
+          x: utils.withGrid(27),
+          y: utils.withGrid(6),
           src: "assets/images/characters/people/npc1.png",
           behaviorLoop: [
             { type: "stand", direction: "left", time: 800 },
@@ -97,7 +115,7 @@ class OverworldMap {
           // idle movement tester ( will change later for the death cutscene)
           behaviorLoop: [
             { type: "walk", direction: "left" },
-            // { type: "stand", direction: "up", time: 800 },
+           { type: "stand", direction: "up", time: 800 },
             { type: "walk", direction: "up" },
             { type: "walk", direction: "right" },
             { type: "walk", direction: "down" },

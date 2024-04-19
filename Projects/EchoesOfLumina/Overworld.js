@@ -56,7 +56,23 @@ class Overworld {
 
    this.startGameLoop();
    
- 
+    this.map.startCutscene([
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+
+      // comment for now
+      { who: "npcA", type: "walk",  direction: "left" },
+      { who: "npcA", type: "walk",  direction: "left" },
+      { who: "npcA", type: "stand",  direction: "up", time: 800 },
+
+    ])
  
   }
  
