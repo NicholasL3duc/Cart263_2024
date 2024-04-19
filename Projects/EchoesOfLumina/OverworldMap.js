@@ -97,7 +97,7 @@ class OverworldMap {
           // idle movement tester ( will change later for the death cutscene)
           behaviorLoop: [
             { type: "walk", direction: "left" },
-            { type: "stand", direction: "up", time: 800 },
+            // { type: "stand", direction: "up", time: 800 },
             { type: "walk", direction: "up" },
             { type: "walk", direction: "right" },
             { type: "walk", direction: "down" },
