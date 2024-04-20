@@ -44,10 +44,17 @@ class Overworld {
     }
     step();
   }
+
+  bindActionInput() {
+     new keyPressListener()
+
+  }
  
   init() {
    this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
   this.map.mountObject();
+
+  this.bindActionInput();
 
    this.directionInput = new DirectionInput();
     this.directionInput.init();
