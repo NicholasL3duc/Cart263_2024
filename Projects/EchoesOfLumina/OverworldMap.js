@@ -100,13 +100,13 @@ class OverworldMap {
           x: utils.withGrid(27),
           y: utils.withGrid(6),
           src: "assets/images/characters/people/npc1.png",
-          behaviorLoop: [
-            { type: "stand", direction: "left", time: 800 },
-            { type: "stand", direction: "up", time: 800 },
-            { type: "stand", direction: "right", time: 800 },
-            { type: "stand", direction: "up", time: 800 },
+          // behaviorLoop: [
+          //   { type: "stand", direction: "left", time: 800 },
+          //   { type: "stand", direction: "up", time: 800 },
+          //   { type: "stand", direction: "right", time: 800 },
+          //   { type: "stand", direction: "up", time: 800 },
 
-          ]
+          // ]
         }),
         npcA: new Person({
           x: utils.withGrid(16,9),
@@ -129,11 +129,33 @@ class OverworldMap {
         [utils.asGridCoord(7,9)] : true,
         [utils.asGridCoord(16,9)] : true,
         [utils.asGridCoord(100,0 && 0,100)] : true,
+      },
+      cutsceneSpaces: {
+        [utils.asGridCoord(7,4)]: [
+          {
+            events: [
+              { who: "npcB", type: "walk",  direction: "left" },
+              { who: "npcB", type: "stand",  direction: "up", time: 500 },
+              { type: "textMessage", text:"RUNNNNN!"},
+              { who: "npcB", type: "walk",  direction: "right" },
+              { who: "hero", type: "walk",  direction: "down" },
+              { who: "hero", type: "walk",  direction: "left" },
+            ]
+          }
+        ],
+        [utils.asGridCoord(6,27)]: [
+          {
+            events: [
+              { type: "changeMap", map: "Sewer" }
+            ]
+          }
+        ]
       }
+      
     },
     Kitchen: {
-      lowerSrc: "assets/images/maps/KitchenLower.png",
-      upperSrc: "assets/images/maps/KitchenUpper.png",
+      lowerSrc: "assets/images/Maps/sewerLower.png",
+      upperSrc: "assets/images/Maps/sewerUpper.png",
       gameObjects: {
         hero: new GameObject({
           x: 3,
