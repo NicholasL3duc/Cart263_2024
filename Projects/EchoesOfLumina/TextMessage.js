@@ -1,18 +1,18 @@
 class TextMessage {
-    constructor({ text, onConmplete }){
+    constructor({ text, onComplete }){
         this.text = text;
-        this.onConmplete = onConmplete;
+        this.onComplete = onComplete;
         this.element = null;
 
     }
 // creating text boxes
     createElement(){
 this.element = document.createElement("div");
-this.element.class.add("TextMessage")
+this.element.classList.add("TextMessage")
 // this element only has one button to add text
 this.element.innerHTML = (`
-        <p>class = "TextMessage_button_p">${this.text}</p>
-        <button class = "TextMessage_button">Next</button>
+<p class="TextMessage_p">${this.text}</p>
+<button class="TextMessage_button">Next</button>
 `)
 
 this.element.querySelector("button").addEventListener("click", () => {

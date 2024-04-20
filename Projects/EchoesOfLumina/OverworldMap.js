@@ -128,23 +128,41 @@ class OverworldMap {
           ]
         }),
         npcA: new Person({
-          x: utils.withGrid(16,9),
-          y: utils.withGrid(9),
-          src: "assets/images/characters/people/npc2.png",
+          x: utils.withGrid(27),
+          y: utils.withGrid(5),
+          src: "assets/images/characters/people/npc3.png",
           // idle movement tester ( will change later for the death cutscene)
           behaviorLoop: [
-            { type: "walk", direction: "left" },
-           { type: "stand", direction: "up", time: 800 },
-            { type: "walk", direction: "up" },
-            { type: "walk", direction: "right" },
-            { type: "walk", direction: "down" },
+          //   { type: "walk", direction: "left" },
+          //  { type: "stand", direction: "up", time: 800 },
+          //   { type: "walk", direction: "up" },
+          //   { type: "walk", direction: "right" },
+          //   { type: "walk", direction: "down" },
           ],
           talking: [
             {
               events: [
-                { type: "textMessage", text: "I'm busy...", faceHero: "npcA" },
-                { type: "textMessage", text: "Go away!"},
-                { who: "hero", type: "walk",  direction: "up" },
+                { type: "textMessage", text: "i Need to get out NOW", },
+                { who: "hero", type: "walk",  direction: "down" },
+              ]
+            }
+          ]
+        }),
+        npcB: new Person({
+          x: utils.withGrid(54,7),
+          y: utils.withGrid(9),
+          src: "assets/images/characters/people/npc2.png",
+          // idle movement tester ( will change later for the death cutscene)
+          behaviorLoop: [
+
+          ],
+          talking: [
+            {
+              events: [
+                { type: "textMessage", text: "Im dying and wont be able to escape...", faceHero: "npcB" },
+                { type: "textMessage", text: "Take this..."},
+                { type: "textMessage", text: "Hero Has Recieved A Part Of a Key!"},
+                { who: "hero", type: "walk",  direction: "down" },
               ]
             }
           ]
@@ -159,19 +177,23 @@ class OverworldMap {
         [utils.asGridCoord(100,0 && 0,100)] : true,
       },
       cutsceneSpaces: {
-        [utils.asGridCoord(5,10)]: [
+        [utils.asGridCoord(20,5)]: [
           {
             events: [
-              { who: "npcB", type: "walk",  direction: "left" },
-              { who: "npcB", type: "stand",  direction: "up", time: 500 },
-              { type: "textMessage", text:"RUNNNNN!"},
-              { who: "npcB", type: "walk",  direction: "right" },
-              { who: "hero", type: "walk",  direction: "down" },
-              { who: "hero", type: "walk",  direction: "left" },
+      { who: "GrimReaper",type: "stand", direction: "up", time: 800 },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
             ]
           }
         ],
-        [utils.asGridCoord(5,7)]: [
+        [utils.asGridCoord(5,51)]: [
           {
             events: [
               { type: "changeMap", map: "Sewer" }
@@ -187,17 +209,20 @@ class OverworldMap {
       gameObjects: {
         hero: new Person({
           isPlayerControlled: true,
-          x: utils.withGrid(5),
-          y: utils.withGrid(5),
+          x: utils.withGrid(9),
+          y: utils.withGrid(27),
         }),
         npcA: new Person({
           x: utils.withGrid(10),
           y: utils.withGrid(8),
-          src: "assets/images/characters/people/npc1.png",
+          src: "assets/images/characters/people/npc2.png",
           talking: [
             {
               events: [
-                { type: "textMessage", text: "You made it!", faceHero:"npcA" },
+                { type: "textMessage", text: "Im dying and wont be able to escape...", faceHero: "npcB" },
+                { type: "textMessage", text: "Take this..."},
+                { type: "textMessage", text: "Hero Has Recieved A Part Of a Key!"},
+                { who: "hero", type: "walk",  direction: "down" },
               ]
             }
           ]
