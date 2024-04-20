@@ -37,7 +37,7 @@ class OverworldMap {
         return this.walls [`${x},${y}`] || false;
     }
 
-    mountObject() {
+    mountObjects() {
      Object.keys(this.gameObjects).forEach(key =>{
 
       let object = this.gameObjects[key];
