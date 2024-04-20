@@ -18,6 +18,9 @@ constructor(config) {
   this.behaviorLoop = config.behaviorLoop || [];
   this.behaviorLoopIndex = 0;
 
+  
+  this.talking = config.talking || [];
+
 }
 
 mount(map) {

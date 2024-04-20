@@ -15,7 +15,24 @@ this.element.innerHTML = (`
         <button class = "TextMessage_button">Next</button>
 `)
 
-    }
+this.element.querySelector("button").addEventListener("click", () => {
+    //Close the text message
+    this.done();
+  });
+
+  this.actionListener = new KeyPressListener("Enter", () => {
+    // this.actionListener.unbind();
+    console.log("found entrance")
+    
+    // this.done();
+  })
+
+}
+
+done() {
+  this.element.remove();
+  this.onComplete();
+}
 
     init(container) {
         this.createElement();

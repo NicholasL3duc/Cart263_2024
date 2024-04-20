@@ -59,7 +59,9 @@ class OverworldMap {
         await eventHandler.init();
         
       }
-  
+      this.isCutscenePlaying = false;
+
+
     //Reset NPCs to do their idle behavior
     Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
   }
@@ -71,6 +73,7 @@ class OverworldMap {
       return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
     });
     if (!this.isCutscenePlaying && match && match.talking.length) {
+      //  the number is the slider for which cutscene i want
       this.startCutscene(match.talking[0].events)
     }
   }
@@ -116,13 +119,13 @@ class OverworldMap {
           x: utils.withGrid(27),
           y: utils.withGrid(6),
           src: "assets/images/characters/people/npc1.png",
-          // behaviorLoop: [
-          //   { type: "stand", direction: "left", time: 800 },
-          //   { type: "stand", direction: "up", time: 800 },
-          //   { type: "stand", direction: "right", time: 800 },
-          //   { type: "stand", direction: "up", time: 800 },
+          behaviorLoop: [
+            { type: "stand", direction: "left", time: 800 },
+            { type: "stand", direction: "up", time: 800 },
+            { type: "stand", direction: "right", time: 800 },
+            { type: "stand", direction: "up", time: 800 },
 
-          // ]
+          ]
         }),
         npcA: new Person({
           x: utils.withGrid(16,9),
@@ -135,6 +138,15 @@ class OverworldMap {
             { type: "walk", direction: "up" },
             { type: "walk", direction: "right" },
             { type: "walk", direction: "down" },
+          ],
+          talking: [
+            {
+              events: [
+                { type: "textMessage", text: "I'm busy...", faceHero: "npcA" },
+                { type: "textMessage", text: "Go away!"},
+                { who: "hero", type: "walk",  direction: "up" },
+              ]
+            }
           ]
         }),
       },
@@ -147,7 +159,7 @@ class OverworldMap {
         [utils.asGridCoord(100,0 && 0,100)] : true,
       },
       cutsceneSpaces: {
-        [utils.asGridCoord(7,4)]: [
+        [utils.asGridCoord(5,10)]: [
           {
             events: [
               { who: "npcB", type: "walk",  direction: "left" },
@@ -159,7 +171,7 @@ class OverworldMap {
             ]
           }
         ],
-        [utils.asGridCoord(6,27)]: [
+        [utils.asGridCoord(5,7)]: [
           {
             events: [
               { type: "changeMap", map: "Sewer" }
@@ -169,23 +181,26 @@ class OverworldMap {
       }
       
     },
-    Kitchen: {
+    Sewer: {
       lowerSrc: "assets/images/Maps/sewerLower.png",
       upperSrc: "assets/images/Maps/sewerUpper.png",
       gameObjects: {
-        hero: new GameObject({
-          x: 3,
-          y: 5,
+        hero: new Person({
+          isPlayerControlled: true,
+          x: utils.withGrid(5),
+          y: utils.withGrid(5),
         }),
-        npcA: new GameObject({
-          x: 9,
-          y: 6,
-          src: "assets/images/characters/people/npc2.png"
-        }),
-        npcB: new GameObject({
-          x: 10,
-          y: 8,
-          src: "assets/images/characters/people/npc3.png"
+        npcA: new Person({
+          x: utils.withGrid(10),
+          y: utils.withGrid(8),
+          src: "assets/images/characters/people/npc1.png",
+          talking: [
+            {
+              events: [
+                { type: "textMessage", text: "You made it!", faceHero:"npcA" },
+              ]
+            }
+          ]
         })
       }
     },
