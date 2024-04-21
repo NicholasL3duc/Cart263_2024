@@ -29,7 +29,7 @@ this.element.querySelector("button").addEventListener("click", () => {
   });
 
   this.actionListener = new KeyPressListener("Enter", () => {
-    // this.actionListener.unbind();
+    this.done();
     console.log("found entrance")
     
     // this.done();
@@ -38,15 +38,20 @@ this.element.querySelector("button").addEventListener("click", () => {
 }
 
 done() {
-  this.element.remove();
-  this.onComplete();
+
+  if (this.revealingText.isDone) {
+    this.element.remove();
+    this.actionListener.unbind();
+    this.onComplete();
+  } else {
+    this.revealingText.warpToDone();
+  }
 }
 
-    init(container) {
-        this.createElement();
-        container.appendChild(this.element)
-        this.revealingText.init();
-
-    }
+init(container) {
+  this.createElement();
+  container.appendChild(this.element);
+  this.revealingText.init();
+}
 
 }
