@@ -199,8 +199,24 @@ class OverworldMap {
               { type: "changeMap", map: "Sewer" }
             ]
           }
-        ]
-      }
+        ],
+      [utils.asGridCoord(25,30)]: [
+        {
+          events: [
+
+          ]
+        }
+      ],
+      [utils.asGridCoord(5,51)]: [
+        {
+          events: [
+           
+          ]
+        }
+      ]
+    },
+
+
       
     },
     Sewer: {
@@ -212,10 +228,14 @@ class OverworldMap {
           x: utils.withGrid(9),
           y: utils.withGrid(27),
         }),
-        npcA: new Person({
-          x: utils.withGrid(10),
-          y: utils.withGrid(8),
+        npcB: new Person({
+          x: utils.withGrid(15),
+          y: utils.withGrid(10),
           src: "assets/images/characters/people/npc2.png",
+          // idle movement tester ( will change later for the death cutscene)
+          behaviorLoop: [
+
+          ],
           talking: [
             {
               events: [
@@ -226,12 +246,11 @@ class OverworldMap {
               ]
             }
           ]
-        })
-      }
-    },
+        }),
   }
 
 
 
 
-
+    }
+  }
