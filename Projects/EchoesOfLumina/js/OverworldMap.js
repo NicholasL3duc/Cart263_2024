@@ -112,8 +112,8 @@ class OverworldMap {
       gameObjects: {
         hero: new Person({
         isPlayerControlled: true,//54,37
-          x: utils.withGrid(53),
-          y: utils.withGrid(30),
+          x: utils.withGrid(5),
+          y: utils.withGrid(5),
         }),
         GrimReaper: new Person({
           x: utils.withGrid(27),
