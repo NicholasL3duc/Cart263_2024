@@ -110,8 +110,8 @@ class OverworldMap {
   
   window.OverworldMaps = {
     DemoRoom: {
-      lowerSrc: "assets/images/maps/DemoLower.png",
-      upperSrc: "assets/images/maps/DemoUpper.png",
+      lowerSrc: "assets/images/Maps/DemoLower.png",
+      upperSrc: "assets/images/Maps/DemoUpper.png",
        //  UnComment this when you figure out the map layout
       gameObjects: {
         hero: new Person({
