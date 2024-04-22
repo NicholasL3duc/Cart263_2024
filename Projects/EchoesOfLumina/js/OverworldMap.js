@@ -112,8 +112,8 @@ class OverworldMap {
       gameObjects: {
         hero: new Person({
         isPlayerControlled: true,//54,37
-          x: utils.withGrid(17),
-          y: utils.withGrid(3),
+          x: utils.withGrid(53),
+          y: utils.withGrid(30),
         }),
         GrimReaper: new Person({
           x: utils.withGrid(27),
@@ -452,6 +452,13 @@ class OverworldMap {
   },
   EndingRoom: {
     lowerSrc: "assets/images/Maps/EndingRoomLower.png",
-   
+    upperSrc: "assets/images/Maps/EndingRoomLower.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(5),
+        y: utils.withGrid(5),
+      })
+    }
   }
 }
