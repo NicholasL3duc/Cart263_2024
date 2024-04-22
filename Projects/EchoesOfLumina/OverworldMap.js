@@ -111,9 +111,9 @@ class OverworldMap {
        //  UnComment this when you figure out the map layout
       gameObjects: {
         hero: new Person({
-        isPlayerControlled: true,
-          x: utils.withGrid(5),
-          y: utils.withGrid(5),
+        isPlayerControlled: true,//54,37
+          x: utils.withGrid(17),
+          y: utils.withGrid(3),
         }),
         GrimReaper: new Person({
           x: utils.withGrid(27),
@@ -133,24 +133,24 @@ class OverworldMap {
           src: "assets/images/characters/people/npc3.png",
           // idle movement tester ( will change later for the death cutscene)
           behaviorLoop: [
-          //   { type: "walk", direction: "left" },
-          //  { type: "stand", direction: "up", time: 800 },
-          //   { type: "walk", direction: "up" },
-          //   { type: "walk", direction: "right" },
-          //   { type: "walk", direction: "down" },
+
           ],
           talking: [
             {
               events: [
+                { type: "textMessage", text: "OMG HE'S DEAD", },
                 { type: "textMessage", text: "i Need to get out NOW", },
+                { type: "textMessage", text: " *you notice something laying next to him"},
+                { type: "textMessage", text: "What's this?"},
+                { type: "textMessage", text: "Hero Has Recieved the 1st Part Of the Key!"},
                 { who: "hero", type: "walk",  direction: "down" },
               ]
             }
           ]
         }),
         npcB: new Person({
-          x: utils.withGrid(54,7),
-          y: utils.withGrid(9),
+          x: utils.withGrid(54),
+          y: utils.withGrid(6),
           src: "assets/images/characters/people/npc2.png",
           // idle movement tester ( will change later for the death cutscene)
           behaviorLoop: [
@@ -159,9 +159,12 @@ class OverworldMap {
           talking: [
             {
               events: [
-                { type: "textMessage", text: "Im dying and wont be able to escape...", faceHero: "npcB" },
-                { type: "textMessage", text: "Take this..."},
-                { type: "textMessage", text: "Hero Has Recieved A Part Of a Key!"},
+                { type: "textMessage", text: "theres a dead body here", faceHero: "npcB" },
+                { type: "textMessage", text: " *you notice something shiny in his hands"},
+                { type: "textMessage", text: "What's this?"},
+                { type: "textMessage", text: "Hero Has Recieved the 2nd Part Of the Key!"},
+                { type: "textMessage", text: "Im almost free!"},
+                { type: "textMessage", text: "the last one should be down the path"},
                 { who: "hero", type: "walk",  direction: "down" },
               ]
             }
@@ -174,10 +177,34 @@ class OverworldMap {
         [utils.asGridCoord(0,0 && 0,29)] : true,
         [utils.asGridCoord(7,9)] : true,
         [utils.asGridCoord(16,9)] : true,
-        [utils.asGridCoord(100,0 && 0,100)] : true,
+        [utils.asGridCoord((6,51))] : true,
+        [utils.asGridCoord(12,11)] : true,
+        [utils.asGridCoord(11,11)] : true,
+        [utils.asGridCoord(17,3)] : true,
+        [utils.asGridCoord((6,51))] : true,
+        [utils.asGridCoord(0,0 && 0,29)] : true,
+        [utils.asGridCoord(7,9)] : true,
+        [utils.asGridCoord(16,9)] : true,
+        [utils.asGridCoord((6,51))] : true,
+        [utils.asGridCoord(0,0 && 0,29)] : true,
+        [utils.asGridCoord(7,9)] : true,
+        [utils.asGridCoord(16,9)] : true,
+        [utils.asGridCoord((6,51))] : true,
+        [utils.asGridCoord(0,0 && 0,29)] : true,
+        [utils.asGridCoord(7,9)] : true,
+        [utils.asGridCoord(16,9)] : true,
+        [utils.asGridCoord((6,51))] : true,
+        [utils.asGridCoord(0,0 && 0,29)] : true,
+        [utils.asGridCoord(7,9)] : true,
+        [utils.asGridCoord(16,9)] : true,
+        [utils.asGridCoord((6,51))] : true,
+        [utils.asGridCoord(0,0 && 0,29)] : true,
+        [utils.asGridCoord(7,9)] : true,
+        [utils.asGridCoord(16,9)] : true,
+        [utils.asGridCoord((6,51))] : true,
       },
       cutsceneSpaces: {
-        [utils.asGridCoord(20,5)]: [
+        [utils.asGridCoord(18,5)]: [
           {
             events: [
       { who: "GrimReaper",type: "stand", direction: "up", time: 800 },
@@ -190,27 +217,102 @@ class OverworldMap {
       { who: "GrimReaper", type: "walk",  direction: "down" },
       { who: "GrimReaper", type: "walk",  direction: "down" },
       { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "down" },
+      { who: "GrimReaper", type: "walk",  direction: "left" },
+      { who: "GrimReaper", type: "walk",  direction: "left" },
+      { who: "GrimReaper", type: "walk",  direction: "left" },
+      { who: "GrimReaper", type: "walk",  direction: "left" },
+      { type: "textMessage", text: "Who was That??"},
             ]
           }
         ],
-        [utils.asGridCoord(5,51)]: [
+        [utils.asGridCoord(6,5)]: [
           {
             events: [
-              { type: "changeMap", map: "Sewer" }
+              { type: "textMessage", text: "Ugh... Where am i??" },
+              { who: "hero", type: "stand",  direction: "down", time: 500 },
+              { who: "hero", type: "stand",  direction: "up", time: 500  },
+              { who: "hero", type: "stand",  direction: "right", time: 500  },
+              { who: "hero", type: "stand",  direction: "left", time: 500  },
+              { who: "hero", type: "stand",  direction: "right", time: 500  },
+                { type: "textMessage", text: "I need to find a way out..."},
+                { type: "textMessage", text: "i should follow this path"},
+        
             ]
           }
         ],
-      [utils.asGridCoord(25,30)]: [
+        [utils.asGridCoord(6,51)]: [
+          {
+            events: [
+              { type: "textMessage", text: "theres a way down"},
+              { type: "textMessage", text: "I should check it out"},
+              { type: "changeMap", map: "Sewer" }
+              
+            ]
+          }
+        ],
+      [utils.asGridCoord(32,20)]: [
         {
           events: [
+              { type: "textMessage", text: "theres writing on the statue"},
+              { type: "textMessage", text: "FIND THE 3 PARTS OF THE KEY TO ESCAPE...."},
+              { type: "textMessage", text: "ONLY THEN WILL THE DOOR SHOW ITSELF"},
+              { who: "hero", type: "stand",  direction: "down", time: 500 },
+              { who: "hero", type: "walk",  direction: "down" },
+              { type: "textMessage", text: "theres something scratched on the floor tile"},
+              { type: "textMessage", text: "T.e... fir.t...KEY...Past...t...Rock"},
+              { type: "textMessage", text: "...."},
+              { type: "textMessage", text: "maybe i should check out this past this boulder "},
+              { who: "hero", type: "walk",  direction: "right" },
 
           ]
         }
       ],
-      [utils.asGridCoord(5,51)]: [
+      [utils.asGridCoord(53,37)]: [
         {
           events: [
-           
+            { type: "textMessage", text: "I think this is it!!"},
+            { type: "textMessage", text: "*starts assembling key*"},
+            { type: "textMessage", text: "i hope this works"},
+            { type: "textMessage", text: "*the door creeks*"},
+            { type: "changeMap", map: "EndingRoom" }
+          
+        
+          ]
+        }
+      ],
+      [utils.asGridCoord(53,36)]: [
+        {
+          events: [
+            { type: "textMessage", text: "I think this is it!!"},
+            { type: "textMessage", text: "*starts assembling key*"},
+            { type: "textMessage", text: "i hope this works"},
+            { type: "textMessage", text: "*the door creeks*"},
+            { type: "changeMap", map: "EndingRoom" }
+          
+        
+          ]
+        }
+      ],
+      [utils.asGridCoord(53,35)]: [
+        {
+          events: [
+            { type: "textMessage", text: "I think this is it!!"},
+            { type: "textMessage", text: "*starts assembling key*"},
+            { type: "textMessage", text: "i hope this works"},
+            { type: "textMessage", text: "*the door creeks*"},
+            { type: "changeMap", map: "EndingRoom" }
+          
+        
           ]
         }
       ]
@@ -240,17 +342,116 @@ class OverworldMap {
             {
               events: [
                 { type: "textMessage", text: "Im dying and wont be able to escape...", faceHero: "npcB" },
+                { type: "textMessage", text: "tell my twin brother i love him..."},
                 { type: "textMessage", text: "Take this..."},
-                { type: "textMessage", text: "Hero Has Recieved A Part Of a Key!"},
+                { type: "textMessage", text: "Hero Has Recieved The Final Part Of the Key!"},
+                { type: "textMessage", text: "A fadded note is attached"},
+                { type: "textMessage", text: "t..e... exit....Do.r...End....Path.."},
+                { type: "textMessage", text: "i think the exit is at the end of the path"},
                 { who: "hero", type: "walk",  direction: "down" },
               ]
             }
           ]
         }),
-  }
-
-
-
+  },
+  walls: {
+    // utility to atomate the values
+    // [] dynamic key
+    [utils.asGridCoord(0,0 && 0,29)] : true,
+    [utils.asGridCoord(7,9)] : true,
+    [utils.asGridCoord(16,9)] : true,
+    [utils.asGridCoord(100,0 && 0,100)] : true,
+  },
+  cutsceneSpaces: {
+    [utils.asGridCoord(10,27)]: [
+      {
+        events: [
+          { type: "textMessage", text: "i think this is where it lives..."},
+          { type: "textMessage", text: "Maybe i can find the last key here"},
+          { type: "textMessage", text: "i need to be careful"},
+ 
+        ]
+      }
+    ],
+    [utils.asGridCoord(50,24)]: [
+      {
+        events: [
+          { type: "textMessage", text: "Eeeyyaaauuugghhhhh!"},
+          { type: "textMessage", text: "*SLASH*"},
+          
+          { type: "textMessage", text: "(i think someone just died!!!)"},
+  
+ 
+        ]
+      }
+    ],
+    [utils.asGridCoord(49,24)]: [
+      {
+        events: [
+          { type: "textMessage", text: "Eeeyyaaauuugghhhhh!"},
+          { type: "textMessage", text: "*SLASH*"},
+          
+          { type: "textMessage", text: "(i think someone just died!!!)"},
+  
+ 
+        ]
+      }
+    ],
+    [utils.asGridCoord(51,24)]: [
+      {
+        events: [
+          { type: "textMessage", text: "Eeeyyaaauuugghhhhh!"},
+          { type: "textMessage", text: "*SLASH*"},
+          
+          { type: "textMessage", text: "(i think someone just died!!!)"},
+  
+ 
+        ]
+      }
+    ],
+    [utils.asGridCoord(48,15)]: [
+      {
+        events: [
+          { type: "textMessage", text: "Thats the way out!!"},
+          { type: "textMessage", text: "i should still look around for a part of the key"},
+  
+ 
+        ]
+      }
+    ],
+    [utils.asGridCoord(49,15)]: [
+      {
+        events: [
+          { type: "textMessage", text: "Thats the way out!!"},
+          { type: "textMessage", text: "i should still look around for a part of the key"},
+  
+ 
+        ]
+      }
+    ],
+    [utils.asGridCoord(50,15)]: [
+      {
+        events: [
+          { type: "textMessage", text: "Thats the way out!!"},
+          { type: "textMessage", text: "i should still look around for a part of the key"},
+  
+ 
+        ]
+      }
+    ],
+    [utils.asGridCoord(48,11)]: [
+      {
+        events: [
+          { type: "changeMap", map: "DemoRoom" }
+        ]
+      }
+    ],
+// code ending on door here
 
     }
+  },
+  EndingRoom: {
+    lowerSrc: "assets/images/Maps/EndingRoomLower.png",
+   
   }
+}

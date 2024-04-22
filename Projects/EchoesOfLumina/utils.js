@@ -26,13 +26,23 @@ const utils = {
         if (direction === "up") { return "down" }
         return "up"
       },
-
+      wait(ms) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve()
+          }, ms)
+        })
+      },
+    
+      randomFromArray(array) {
+        return array[ Math.floor(Math.random()*array.length) ]
+      },
+    
+      emitEvent(name, detail) {
+        const event = new CustomEvent(name, {
+          detail
+        });
+        document.dispatchEvent(event);
+      }
       
-    emitEvent(name, detail){
-    const event = new CustomEvent(name, {
-        detail
-    });
-   document.dispatchEvent(event);
     }
-
-}
