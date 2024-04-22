@@ -3,7 +3,7 @@ class OverworldMap {
         // core building block of the Maps
       this.gameObjects = config.gameObjects;
   this.cutsceneSpaces = config.cutsceneSpaces || {}; 
-  
+
         this.walls = config.walls || {};
         var img = new Image();
         img.onload = function() {
